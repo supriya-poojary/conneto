@@ -1,0 +1,2653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Conneto</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --blue: #1D4ED8;
+      --blue-mid: #2563EB;
+      --blue-lt: #3B82F6;
+      --blue-xl: #EFF6FF;
+      --blue-bd: #DBEAFE;
+      --navy: #1E3A8A;
+      --navy-dk: #172554;
+      --slate: #0F172A;
+      --slate2: #1E293B;
+      --text: #111827;
+      --tm: #1F2937;
+      --ts: #374151;
+      --tmu: #6B7280;
+      --gray: #F0F4FA;
+      --white: #fff;
+      --line: #CBD5E1;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fff;
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.65;
+      font-weight: 500
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    ul {
+      list-style: none
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      transition: all .4s var(--ease)
+    }
+
+    .nav.solid {
+      background: rgba(255, 255, 255, .97);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--line), 0 4px 24px rgba(0, 0, 0, .08)
+    }
+
+    .nav-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.05em;
+      transition: color .3s
+    }
+
+    .nav.solid .nav-logo {
+      color: var(--navy)
+    }
+
+    .nav-links {
+      display: flex;
+      gap: .3rem
+    }
+
+    .nav-links a {
+      font-size: .88rem;
+      font-weight: 700;
+      padding: .5rem 1.1rem;
+      border-radius: 8px;
+      color: rgba(255, 255, 255, .88);
+      transition: all .25s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      background: rgba(255, 255, 255, .14)
+    }
+
+    .nav.solid .nav-links a {
+      color: var(--ts)
+    }
+
+    .nav.solid .nav-links a:hover {
+      color: var(--navy);
+      background: var(--blue-xl)
+    }
+
+    .nav.solid .nav-links a.active {
+      color: var(--blue-mid);
+      background: var(--blue-xl)
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: .6rem
+    }
+
+    .btn-nav-ghost {
+      padding: .5rem 1.3rem;
+      border-radius: 9px;
+      border: 1.5px solid rgba(255, 255, 255, .32);
+      color: #fff;
+      font-size: .84rem;
+      font-weight: 700;
+      transition: all .2s
+    }
+
+    .btn-nav-ghost:hover {
+      background: rgba(255, 255, 255, .12)
+    }
+
+    .btn-nav-solid {
+      padding: .5rem 1.4rem;
+      border-radius: 9px;
+      background: #fff;
+      color: var(--blue);
+      font-size: .84rem;
+      font-weight: 800;
+      transition: all .2s;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .18)
+    }
+
+    .btn-nav-solid:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .22)
+    }
+
+    .nav.solid .btn-nav-ghost {
+      border-color: var(--line);
+      color: var(--tm)
+    }
+
+    .nav.solid .btn-nav-ghost:hover {
+      border-color: var(--blue-mid);
+      color: var(--blue-mid);
+      background: var(--blue-xl)
+    }
+
+    .nav.solid .btn-nav-solid {
+      background: var(--blue-mid);
+      color: #fff
+    }
+
+    .nav.solid .btn-nav-solid:hover {
+      background: var(--blue)
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1800&q=90');
+      background-size: cover;
+      background-position: center top
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(145deg, rgba(15, 23, 66, .93) 0%, rgba(23, 37, 84, .88) 35%, rgba(29, 78, 216, .78) 70%, rgba(37, 99, 235, .72) 100%)
+    }
+
+    #heroCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 9rem 7% 5rem;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      align-items: center
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      background: rgba(59, 130, 246, .18);
+      border: 1px solid rgba(99, 179, 237, .3);
+      padding: .38rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.4rem;
+      animation: riseUp .7s var(--ease) both
+    }
+
+    .badge-pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #60A5FA;
+      animation: blink 2s ease infinite
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .3
+      }
+    }
+
+    .hero-h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.7rem, 5.5vw, 4.3rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.04em;
+      line-height: 1.05;
+      margin-bottom: 1.3rem;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, .3);
+      animation: riseUp .7s .1s var(--ease) both
+    }
+
+    .hero-h1 .grad-text {
+      display: block;
+      background: linear-gradient(90deg, #93C5FD, #38BDF8, #67E8F9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero-p {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, .82);
+      line-height: 1.82;
+      max-width: 490px;
+      font-weight: 500;
+      margin-bottom: 2.2rem;
+      animation: riseUp .7s .2s var(--ease) both
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: riseUp .7s .3s var(--ease) both
+    }
+
+    .btn-hp {
+      padding: .9rem 2rem;
+      border-radius: 12px;
+      background: #fff;
+      color: var(--blue);
+      font-family: 'Outfit', sans-serif;
+      font-size: .95rem;
+      font-weight: 800;
+      box-shadow: 0 4px 22px rgba(0, 0, 0, .25);
+      transition: all .25s
+    }
+
+    .btn-hp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .32)
+    }
+
+    .btn-hs {
+      padding: .9rem 2rem;
+      border-radius: 12px;
+      border: 1.5px solid rgba(255, 255, 255, .3);
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      transition: all .25s
+    }
+
+    .btn-hs:hover {
+      background: rgba(255, 255, 255, .12);
+      border-color: rgba(255, 255, 255, .55)
+    }
+
+    .hero-card-wrap {
+      animation: riseUp .9s .4s var(--ease) both
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, .1);
+      backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 22px;
+      padding: 1.9rem;
+      animation: floatY 6s ease-in-out infinite;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .3)
+    }
+
+    @keyframes floatY {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-14px)
+      }
+    }
+
+    .hc-head {
+      font-family: 'Outfit', sans-serif;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      margin-bottom: 1.4rem
+    }
+
+    .hc-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: .9rem
+    }
+
+    .hc-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: .85rem 1rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .1);
+      transition: background .3s
+    }
+
+    .hc-row:hover {
+      background: rgba(255, 255, 255, .16)
+    }
+
+    .hc-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0
+    }
+
+    .hc-icon svg {
+      width: 19px;
+      height: 19px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 1.8
+    }
+
+    .hc-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1
+    }
+
+    .hc-lbl {
+      font-size: .74rem;
+      color: rgba(255, 255, 255, .65);
+      margin-top: .14rem;
+      font-weight: 500
+    }
+
+    .hc-live {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      margin-top: 1.3rem;
+      padding: .45rem 1rem;
+      border-radius: 100px;
+      background: rgba(16, 185, 129, .16);
+      border: 1px solid rgba(16, 185, 129, .3);
+      font-size: .75rem;
+      font-weight: 800;
+      color: #6EE7B7
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #34D399;
+      animation: livePulse 2s ease infinite
+    }
+
+    @keyframes livePulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, .5)
+      }
+
+      60% {
+        box-shadow: 0 0 0 8px rgba(52, 211, 153, 0)
+      }
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      animation: riseUp 1s .9s var(--ease) both;
+      opacity: .75
+    }
+
+    .scroll-cue span {
+      font-size: .7rem;
+      color: rgba(255, 255, 255, .65);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700
+    }
+
+    .scroll-mouse {
+      width: 22px;
+      height: 34px;
+      border: 2px solid rgba(255, 255, 255, .35);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      padding-top: 5px
+    }
+
+    .scroll-wheel {
+      width: 3px;
+      height: 7px;
+      background: rgba(255, 255, 255, .8);
+      border-radius: 2px;
+      animation: wheel 1.6s ease infinite
+    }
+
+    @keyframes wheel {
+      0% {
+        transform: translateY(0);
+        opacity: 1
+      }
+
+      100% {
+        transform: translateY(10px);
+        opacity: 0
+      }
+    }
+
+    @keyframes riseUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: linear-gradient(135deg, #172554 0%, var(--navy) 50%, var(--blue-mid) 100%);
+      padding: 2.8rem 7%;
+      position: relative;
+      overflow: hidden
+    }
+
+    .stats-bar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 80% 50%, rgba(255, 255, 255, .1), transparent)
+    }
+
+    .stats-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, .15);
+      background: rgba(255, 255, 255, .09);
+      transition: all .3s;
+      backdrop-filter: blur(10px)
+    }
+
+    .stat-box:hover {
+      background: rgba(255, 255, 255, .17);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, .22)
+    }
+
+    .stat-v {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: .35rem
+    }
+
+    .stat-l {
+      font-size: .83rem;
+      color: rgba(255, 255, 255, .76);
+      font-weight: 700
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 6.5rem 7%
+    }
+
+    .si {
+      max-width: 1120px;
+      margin: 0 auto
+    }
+
+    .sec-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .48rem;
+      font-size: .71rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      background: var(--blue-xl);
+      border: 1px solid var(--blue-bd);
+      padding: .33rem .88rem;
+      border-radius: 100px;
+      margin-bottom: 1rem
+    }
+
+    .sec-pill svg {
+      width: 11px;
+      height: 11px;
+      stroke: var(--blue-mid);
+      fill: none;
+      stroke-width: 2.5
+    }
+
+    .sec-h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      color: var(--text);
+      line-height: 1.12;
+      margin-bottom: .9rem
+    }
+
+    .sec-sub {
+      font-size: 1rem;
+      color: var(--ts);
+      line-height: 1.8;
+      max-width: 520px;
+      font-weight: 500
+    }
+
+    .center {
+      text-align: center
+    }
+
+    .center .sec-sub {
+      margin: 0 auto
+    }
+
+    /* STORY */
+    .story-bg {
+      background: #F4F7FF
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5.5rem;
+      align-items: center
+    }
+
+    .story-vis {
+      position: relative
+    }
+
+    .story-img-box {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(29, 78, 216, .2), 0 12px 32px rgba(0, 0, 0, .12);
+      position: relative
+    }
+
+    .story-img-box img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      transition: transform .7s var(--ease)
+    }
+
+    .story-img-box:hover img {
+      transform: scale(1.04)
+    }
+
+    .badge-a {
+      position: absolute;
+      bottom: 22px;
+      left: 22px;
+      background: rgba(255, 255, 255, .97);
+      backdrop-filter: blur(14px);
+      border-radius: 14px;
+      padding: 1rem 1.4rem;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 48px rgba(0, 0, 0, .18);
+      animation: floatY 7s 1s ease-in-out infinite
+    }
+
+    .badge-a-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--blue-mid);
+      line-height: 1
+    }
+
+    .badge-a-lbl {
+      font-size: .73rem;
+      color: var(--tmu);
+      margin-top: .2rem;
+      font-weight: 700
+    }
+
+    .badge-b {
+      position: absolute;
+      top: 22px;
+      right: -18px;
+      background: linear-gradient(135deg, #10B981, #059669);
+      border-radius: 14px;
+      padding: .9rem 1.3rem;
+      box-shadow: 0 14px 40px rgba(16, 185, 129, .45);
+      animation: floatY 6s 2s ease-in-out infinite
+    }
+
+    .badge-b-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1
+    }
+
+    .badge-b-lbl {
+      font-size: .71rem;
+      color: rgba(255, 255, 255, .85);
+      margin-top: .2rem;
+      font-weight: 600
+    }
+
+    .story-text p {
+      font-size: 1rem;
+      color: var(--ts);
+      line-height: 1.82;
+      margin-bottom: 1.1rem;
+      font-weight: 500
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1.8rem
+    }
+
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .5rem 1rem;
+      border-radius: 9px;
+      font-size: .83rem;
+      font-weight: 800
+    }
+
+    .chip svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke-width: 2.5
+    }
+
+    .chip-b {
+      background: var(--blue-xl);
+      color: var(--blue-mid);
+      border: 1.5px solid var(--blue-bd)
+    }
+
+    .chip-b svg {
+      stroke: var(--blue-mid)
+    }
+
+    .chip-g {
+      background: #D1FAE5;
+      color: #065F46;
+      border: 1.5px solid #A7F3D0
+    }
+
+    .chip-g svg {
+      stroke: #065F46
+    }
+
+    .chip-a {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1.5px solid #FDE68A
+    }
+
+    .chip-a svg {
+      stroke: #92400E
+    }
+
+    /* MISSION & VISION — Dark animated cards */
+    .mv-section {
+      background: linear-gradient(160deg, #0D1B3E 0%, #111C3A 50%, #0E2152 100%);
+      padding: 7rem 7%;
+      position: relative;
+      overflow: hidden
+    }
+
+    .mv-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1400&q=80') center/cover;
+      opacity: .07
+    }
+
+    .mv-section::after {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, .18), transparent 65%);
+      pointer-events: none
+    }
+
+    .mv-dark-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .48rem;
+      font-size: .71rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      background: rgba(59, 130, 246, .15);
+      border: 1px solid rgba(99, 179, 237, .25);
+      padding: .33rem .88rem;
+      border-radius: 100px;
+      margin-bottom: 1rem
+    }
+
+    .mv-dark-h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      color: #fff;
+      line-height: 1.12;
+      margin-bottom: .9rem
+    }
+
+    .mv-dark-sub {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, .7);
+      line-height: 1.8;
+      max-width: 520px;
+      font-weight: 500;
+      margin: 0 auto
+    }
+
+    .mv-cards-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3.5rem;
+      position: relative;
+      z-index: 1
+    }
+
+    .mv-card {
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      border: 1px solid rgba(255, 255, 255, .1);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity .9s var(--ease), transform .9s var(--ease), box-shadow .4s var(--ease)
+    }
+
+    .mv-card.mv-on {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .mv-card:nth-child(2) {
+      transition-delay: .2s
+    }
+
+    .mv-card:hover {
+      transform: translateY(-8px) !important
+    }
+
+    .mv-card-m {
+      background: linear-gradient(145deg, rgba(29, 78, 216, .28), rgba(37, 99, 235, .16));
+      box-shadow: 0 20px 60px rgba(29, 78, 216, .28), 0 8px 24px rgba(0, 0, 0, .2)
+    }
+
+    .mv-card-v {
+      background: linear-gradient(145deg, rgba(245, 158, 11, .18), rgba(180, 83, 9, .1));
+      box-shadow: 0 20px 60px rgba(245, 158, 11, .18), 0 8px 24px rgba(0, 0, 0, .2)
+    }
+
+    .mv-card-m:hover {
+      box-shadow: 0 36px 90px rgba(29, 78, 216, .45), 0 12px 36px rgba(0, 0, 0, .25) !important
+    }
+
+    .mv-card-v:hover {
+      box-shadow: 0 36px 90px rgba(245, 158, 11, .35), 0 12px 36px rgba(0, 0, 0, .25) !important
+    }
+
+    .mv-card-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.8rem
+    }
+
+    .mv-card-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: none;
+      stroke-width: 1.6
+    }
+
+    .mvi-m {
+      background: rgba(59, 130, 246, .25);
+      border: 1.5px solid rgba(99, 179, 237, .4)
+    }
+
+    .mvi-m svg {
+      stroke: #93C5FD
+    }
+
+    .mvi-v {
+      background: rgba(245, 158, 11, .2);
+      border: 1.5px solid rgba(251, 191, 36, .35)
+    }
+
+    .mvi-v svg {
+      stroke: #FCD34D
+    }
+
+    .mv-card-tag {
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .8rem
+    }
+
+    .mv-card-m .mv-card-tag {
+      color: #93C5FD
+    }
+
+    .mv-card-v .mv-card-tag {
+      color: #FCD34D
+    }
+
+    .mv-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.03em;
+      margin-bottom: 1.1rem
+    }
+
+    .mv-card-desc {
+      font-size: .97rem;
+      color: rgba(255, 255, 255, .74);
+      line-height: 1.82;
+      font-weight: 500;
+      margin-bottom: 1.8rem
+    }
+
+    .mv-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: .7rem
+    }
+
+    .mv-pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .9rem 1.1rem;
+      border-radius: 12px;
+      transition: transform .22s
+    }
+
+    .mv-pillar-m {
+      background: rgba(59, 130, 246, .15);
+      border: 1px solid rgba(99, 179, 237, .2)
+    }
+
+    .mv-pillar-v {
+      background: rgba(245, 158, 11, .12);
+      border: 1px solid rgba(251, 191, 36, .2)
+    }
+
+    .mv-pillar:hover {
+      transform: translateX(5px)
+    }
+
+    .mp-dot-m {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #60A5FA;
+      flex-shrink: 0;
+      margin-top: .37rem
+    }
+
+    .mp-dot-v {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #FBBF24;
+      flex-shrink: 0;
+      margin-top: .37rem
+    }
+
+    .mp-txt {
+      font-size: .87rem;
+      color: rgba(255, 255, 255, .85);
+      font-weight: 700;
+      line-height: 1.5
+    }
+
+    /* HOW IT WORKS */
+    .hiw-bg {
+      background: linear-gradient(160deg, #0D1B3E 0%, #111C3A 45%, #0E2152 100%);
+      position: relative;
+      overflow: hidden
+    }
+
+    .hiw-bg::before {
+      content: '';
+      position: absolute;
+      top: -180px;
+      left: -180px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, .22), transparent 65%);
+      pointer-events: none;
+      animation: rotatePulse 18s ease-in-out infinite
+    }
+
+    .hiw-bg::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59, 130, 246, .15), transparent 65%);
+      pointer-events: none;
+      animation: rotatePulse 22s 3s ease-in-out infinite reverse
+    }
+
+    @keyframes rotatePulse {
+
+      0%,
+      100% {
+        transform: scale(1) rotate(0deg)
+      }
+
+      50% {
+        transform: scale(1.12) rotate(8deg)
+      }
+    }
+
+    .hiw-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0
+    }
+
+    .hiw-bg .si {
+      position: relative;
+      z-index: 1
+    }
+
+    .hiw-bg .sec-pill {
+      color: #93C5FD;
+      background: rgba(59, 130, 246, .15);
+      border-color: rgba(99, 179, 237, .25)
+    }
+
+    .hiw-bg .sec-pill svg {
+      stroke: #93C5FD
+    }
+
+    .hiw-bg .sec-h2 {
+      color: #fff
+    }
+
+    .hiw-bg .sec-sub {
+      color: rgba(255, 255, 255, .7)
+    }
+
+    .hiw-tabs-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0 3.5rem
+    }
+
+    .hiw-tabs {
+      display: flex;
+      gap: .4rem;
+      background: rgba(255, 255, 255, .08);
+      border: 1.5px solid rgba(255, 255, 255, .15);
+      border-radius: 14px;
+      padding: .4rem;
+      backdrop-filter: blur(12px)
+    }
+
+    .hiw-tab {
+      padding: .65rem 2rem;
+      border-radius: 10px;
+      font-size: .9rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, .65);
+      cursor: pointer;
+      transition: all .3s var(--ease)
+    }
+
+    .hiw-tab.active {
+      background: rgba(255, 255, 255, .15);
+      color: #fff;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, .2)
+    }
+
+    .hiw-panel {
+      display: none
+    }
+
+    .hiw-panel.active {
+      display: block
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem
+    }
+
+    .flow-card {
+      background: rgba(255, 255, 255, .06);
+      border: 1.5px solid rgba(255, 255, 255, .1);
+      border-radius: 22px;
+      padding: 2.2rem 1.9rem;
+      position: relative;
+      overflow: hidden;
+      transition: all .38s var(--ease);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, .2);
+      backdrop-filter: blur(12px)
+    }
+
+    .flow-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #60A5FA, #38BDF8);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .38s var(--ease)
+    }
+
+    .flow-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(99, 179, 237, .4);
+      box-shadow: 0 32px 72px rgba(29, 78, 216, .35), 0 10px 28px rgba(0, 0, 0, .2);
+      background: rgba(255, 255, 255, .12)
+    }
+
+    .flow-card:hover::after {
+      transform: scaleX(1)
+    }
+
+    .fc-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: rgba(99, 179, 237, .35);
+      line-height: 1;
+      margin-bottom: .8rem
+    }
+
+    .fc-icon-wrap {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      border: 1.5px solid rgba(99, 179, 237, .3);
+      background: rgba(59, 130, 246, .2);
+      transition: transform .35s var(--ease)
+    }
+
+    .flow-card:hover .fc-icon-wrap {
+      transform: scale(1.14) rotate(-6deg)
+    }
+
+    .fc-icon-wrap svg {
+      width: 23px;
+      height: 23px;
+      stroke: #93C5FD;
+      fill: none;
+      stroke-width: 1.8
+    }
+
+    .fc-icon-dk {
+      background: rgba(30, 41, 59, .6);
+      border-color: rgba(99, 179, 237, .25)
+    }
+
+    .fc-icon-dk svg {
+      stroke: #93C5FD
+    }
+
+    .fc-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.06rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: .55rem
+    }
+
+    .fc-desc {
+      font-size: .86rem;
+      color: rgba(255, 255, 255, .65);
+      line-height: 1.68;
+      font-weight: 500
+    }
+
+    .fc-arrow {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: rgba(59, 130, 246, .25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(.6);
+      transition: all .32s var(--ease)
+    }
+
+    .fc-arrow svg {
+      width: 13px;
+      height: 13px;
+      stroke: #93C5FD;
+      fill: none;
+      stroke-width: 2.5
+    }
+
+    .flow-card:hover .fc-arrow {
+      opacity: 1;
+      transform: scale(1)
+    }
+
+    .flow-grid-bot {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+      margin-top: 1.6rem;
+      max-width: calc(66.66% + .8rem);
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    /* WHY CHOOSE — Dark */
+    .why-bg {
+      background: linear-gradient(160deg, #111C3A 0%, #0B1B45 50%, #0D1B3E 100%);
+      padding: 6.5rem 7%;
+      position: relative;
+      overflow: hidden
+    }
+
+    .why-bg::before {
+      content: '';
+      position: absolute;
+      bottom: -200px;
+      left: -200px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, .2), transparent 65%);
+      pointer-events: none
+    }
+
+    .why-bg::after {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -100px;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 179, 237, .12), transparent 65%);
+      pointer-events: none
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.6rem;
+      margin-top: 3rem;
+      align-items: start;
+      position: relative;
+      z-index: 1
+    }
+
+    .why-card {
+      background: rgba(255, 255, 255, .07);
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      padding: 2.6rem 2rem 2.2rem;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: all .45s var(--ease);
+      backdrop-filter: blur(12px);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column
+    }
+
+    .why-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, rgba(255, 255, 255, .04), transparent);
+      opacity: 0;
+      transition: opacity .4s
+    }
+
+    .why-card:hover {
+      transform: translateY(-16px) scale(1.02);
+      border-color: rgba(99, 179, 237, .45);
+      box-shadow: 0 44px 90px rgba(29, 78, 216, .5), 0 16px 40px rgba(0, 0, 0, .3);
+      background: rgba(255, 255, 255, .14)
+    }
+
+    .why-card:hover::before {
+      opacity: 1
+    }
+
+    .why-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue-lt), #38BDF8);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .45s var(--ease)
+    }
+
+    .why-card:hover::after {
+      transform: scaleX(1)
+    }
+
+    .why-card:nth-child(2n) {
+      margin-top: 2.2rem
+    }
+
+    .w-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      color: rgba(255, 255, 255, .3);
+      margin-bottom: 1rem
+    }
+
+    .w-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.4rem;
+      transition: transform .45s var(--ease), box-shadow .45s var(--ease)
+    }
+
+    .w-icon svg {
+      width: 27px;
+      height: 27px;
+      fill: none;
+      stroke-width: 1.7
+    }
+
+    .why-card:hover .w-icon {
+      transform: scale(1.22) rotate(-8deg)
+    }
+
+    .wi-bl {
+      background: rgba(59, 130, 246, .2);
+      border: 1px solid rgba(99, 179, 237, .3)
+    }
+
+    .wi-bl svg {
+      stroke: #93C5FD
+    }
+
+    .wi-gr {
+      background: rgba(16, 185, 129, .18);
+      border: 1px solid rgba(52, 211, 153, .3)
+    }
+
+    .wi-gr svg {
+      stroke: #34D399
+    }
+
+    .wi-am {
+      background: rgba(245, 158, 11, .18);
+      border: 1px solid rgba(251, 191, 36, .3)
+    }
+
+    .wi-am svg {
+      stroke: #FCD34D
+    }
+
+    .wi-vi {
+      background: rgba(139, 92, 246, .18);
+      border: 1px solid rgba(167, 139, 250, .3)
+    }
+
+    .wi-vi svg {
+      stroke: #A78BFA
+    }
+
+    .wi-re {
+      background: rgba(239, 68, 68, .15);
+      border: 1px solid rgba(252, 165, 165, .3)
+    }
+
+    .wi-re svg {
+      stroke: #FCA5A5
+    }
+
+    .why-card:hover .wi-bl {
+      box-shadow: 0 8px 28px rgba(59, 130, 246, .4)
+    }
+
+    .why-card:hover .wi-gr {
+      box-shadow: 0 8px 28px rgba(16, 185, 129, .4)
+    }
+
+    .why-card:hover .wi-am {
+      box-shadow: 0 8px 28px rgba(245, 158, 11, .4)
+    }
+
+    .why-card:hover .wi-vi {
+      box-shadow: 0 8px 28px rgba(139, 92, 246, .4)
+    }
+
+    .why-card:hover .wi-re {
+      box-shadow: 0 8px 28px rgba(239, 68, 68, .4)
+    }
+
+    .w-h {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.12rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: .8rem;
+      line-height: 1.25
+    }
+
+    .w-p {
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .65);
+      line-height: 1.72;
+      font-weight: 500;
+      flex: 1
+    }
+
+    /* TEAM */
+    .team-bg {
+      background: #F4F7FF
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center
+    }
+
+    .team-text p {
+      font-size: 1rem;
+      color: var(--ts);
+      line-height: 1.82;
+      font-weight: 500;
+      margin-bottom: .9rem
+    }
+
+    .img-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 240px 240px;
+      gap: 1rem
+    }
+
+    .im-tall {
+      grid-row: 1/3
+    }
+
+    .im-item {
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, .16), 0 4px 14px rgba(0, 0, 0, .08)
+    }
+
+    .im-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .65s var(--ease)
+    }
+
+    .im-item:hover img {
+      transform: scale(1.07)
+    }
+
+    .im-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, .7) 0%, transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.1rem;
+      opacity: 0;
+      transition: opacity .35s
+    }
+
+    .im-item:hover .im-overlay {
+      opacity: 1
+    }
+
+    .im-lbl {
+      font-size: .78rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: .06em;
+      text-transform: uppercase
+    }
+
+    /* CTA */
+    .cta-section {
+      position: relative;
+      background: linear-gradient(145deg, #172554, var(--navy), var(--blue-mid));
+      padding: 7rem 7%;
+      text-align: center;
+      overflow: hidden
+    }
+
+    #ctaCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto
+    }
+
+    .cta-inner h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.04em;
+      margin-bottom: 1rem
+    }
+
+    .cta-inner p {
+      font-size: 1.02rem;
+      color: rgba(255, 255, 255, .76);
+      margin-bottom: 2.5rem;
+      line-height: 1.78;
+      font-weight: 500
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .btn-cp {
+      padding: .95rem 2.3rem;
+      border-radius: 13px;
+      background: #fff;
+      color: var(--blue);
+      font-family: 'Outfit', sans-serif;
+      font-size: .97rem;
+      font-weight: 900;
+      box-shadow: 0 4px 22px rgba(0, 0, 0, .22);
+      transition: all .25s
+    }
+
+    .btn-cp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 38px rgba(0, 0, 0, .32)
+    }
+
+    .btn-cs {
+      padding: .95rem 2.3rem;
+      border-radius: 13px;
+      border: 1.5px solid rgba(255, 255, 255, .32);
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: .97rem;
+      font-weight: 700;
+      transition: all .25s
+    }
+
+    .btn-cs:hover {
+      background: rgba(255, 255, 255, .12);
+      border-color: rgba(255, 255, 255, .55)
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0F1E42;
+      padding: 4.5rem 7% 2rem
+    }
+
+    .f-top {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, .1)
+    }
+
+    .f-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.05em
+    }
+
+    .f-desc {
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .52);
+      line-height: 1.78;
+      max-width: 250px;
+      margin: .8rem 0 1.4rem;
+      font-weight: 500
+    }
+
+    .f-socials {
+      display: flex;
+      gap: .55rem
+    }
+
+    .f-soc {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .f-soc:hover {
+      background: var(--blue-mid);
+      border-color: var(--blue-mid);
+      transform: translateY(-2px)
+    }
+
+    .f-soc svg {
+      width: 15px;
+      height: 15px;
+      fill: rgba(255, 255, 255, .75);
+      stroke: none
+    }
+
+    .f-col h5 {
+      font-family: 'Outfit', sans-serif;
+      font-size: .79rem;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 1.1rem
+    }
+
+    .f-col a {
+      display: block;
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .48);
+      margin-bottom: .65rem;
+      transition: color .2s;
+      font-weight: 500
+    }
+
+    .f-col a:hover {
+      color: #fff
+    }
+
+    .f-bottom {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .8rem;
+      font-size: .79rem;
+      color: rgba(255, 255, 255, .32);
+      font-weight: 500
+    }
+
+    .f-bl {
+      display: flex;
+      gap: 1.6rem
+    }
+
+    .f-bl a {
+      color: rgba(255, 255, 255, .32);
+      transition: color .2s
+    }
+
+    .f-bl a:hover {
+      color: rgba(255, 255, 255, .7)
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transition: opacity .75s var(--ease), transform .75s var(--ease)
+    }
+
+    .reveal.on {
+      opacity: 1;
+      transform: none !important
+    }
+
+    .rv-up {
+      transform: translateY(44px)
+    }
+
+    .rv-left {
+      transform: translateX(-44px)
+    }
+
+    .rv-right {
+      transform: translateX(44px)
+    }
+
+    .rv-sc {
+      transform: scale(.9)
+    }
+
+    .d1 {
+      transition-delay: .1s
+    }
+
+    .d2 {
+      transition-delay: .2s
+    }
+
+    .d3 {
+      transition-delay: .3s
+    }
+
+    .d4 {
+      transition-delay: .4s
+    }
+
+    .d5 {
+      transition-delay: .5s
+    }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 8px;
+      transition: background .2s
+    }
+
+    .hamburger:hover {
+      background: rgba(255, 255, 255, .1)
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all .35s
+    }
+
+    .nav.solid .hamburger span {
+      background: var(--navy)
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px)
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px)
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, .97);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem 7%;
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .12);
+      z-index: 899;
+      flex-direction: column;
+      gap: .4rem
+    }
+
+    .mobile-menu a {
+      font-size: .95rem;
+      font-weight: 700;
+      padding: .75rem 1rem;
+      border-radius: 10px;
+      color: var(--ts);
+      display: block;
+      transition: all .2s;
+      text-decoration: none
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--blue-mid);
+      background: var(--blue-xl)
+    }
+
+    .mobile-menu-cta {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-top: .8rem;
+      padding-top: .8rem;
+      border-top: 1px solid var(--line)
+    }
+
+    .mobile-menu-cta a {
+      text-align: center;
+      padding: .75rem 1rem;
+      border-radius: 9px;
+      font-weight: 700;
+      text-decoration: none
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:980px) {
+
+      .hero-inner,
+      .story-grid,
+      .team-grid {
+        grid-template-columns: 1fr
+      }
+
+      .mv-cards-row {
+        grid-template-columns: 1fr
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .why-card:nth-child(2n) {
+        margin-top: 0
+      }
+
+      .f-top {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .flow-grid,
+      .flow-grid-bot {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .flow-grid-bot {
+        max-width: 100%;
+        margin: 1.6rem 0 0
+      }
+
+      .hero-inner {
+        gap: 3rem
+      }
+    }
+
+    @media(max-width:820px) {
+
+      .nav-links,
+      .nav-cta {
+        display: none
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      .mobile-menu.open {
+        display: flex
+      }
+
+      .section {
+        padding: 4rem 5%
+      }
+
+      .f-top {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:620px) {
+      .why-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .f-top {
+        grid-template-columns: 1fr
+      }
+
+      .img-mosaic {
+        grid-template-columns: 1fr;
+        grid-template-rows: 200px 170px 170px
+      }
+
+      .im-tall {
+        grid-row: auto
+      }
+
+      .flow-grid {
+        grid-template-columns: 1fr
+      }
+
+      .flow-grid-bot {
+        grid-template-columns: 1fr
+      }
+
+      .section {
+        padding: 3.5rem 5%
+      }
+
+      .nav {
+        padding: 0 5%
+      }
+
+      .f-bottom {
+        flex-direction: column;
+        text-align: center
+      }
+
+      footer {
+        padding: 3rem 5% 1.5rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav-logo">Conn<span style="color:#60A5FA">eto</span></div>
+    <div class="nav-links">
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#" class="btn-nav-ghost">Sign In</a>
+      <a href="#" class="btn-nav-solid">Get Started</a>
+    </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-menu-cta">
+      <a href="#" style="border:1.5px solid var(--line);color:var(--tm)">Sign In</a>
+      <a href="#" style="background:var(--blue-mid);color:#fff">Get Started</a>
+    </div>
+  </div>
+
+  <!-- HERO with professional background image -->
+  <section class="hero">
+    <div class="hero-bg-img"></div>
+    <div class="hero-overlay"></div>
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">
+          <div class="badge-pulse"></div>About Conneto
+        </div>
+        <h1 class="hero-h1">Where Talent<span class="grad-text">Meets Opportunity</span></h1>
+        <p class="hero-p">Conneto is a smart internship portal built to bridge the gap between ambitious students and
+          forward-thinking companies — making the path from campus to career faster, smarter, and transparent.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn-hp">Explore Internships</a>
+          <a href="contact.html" class="btn-hs">Contact Us</a>
+        </div>
+      </div>
+      <div class="hero-card-wrap">
+        <div class="hero-card">
+          <div class="hc-head">Platform Overview</div>
+          <div class="hc-metrics">
+            <div class="hc-row">
+              <div class="hc-icon" style="background:rgba(59,130,246,.28)"><svg viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg></div>
+              <div>
+                <div class="hc-val" data-target="12000" data-suffix="+">0</div>
+                <div class="hc-lbl">Students Registered</div>
+              </div>
+            </div>
+            <div class="hc-row">
+              <div class="hc-icon" style="background:rgba(16,185,129,.28)"><svg viewBox="0 0 24 24">
+                  <rect x="2" y="7" width="20" height="14" rx="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg></div>
+              <div>
+                <div class="hc-val" data-target="400" data-suffix="+">0</div>
+                <div class="hc-lbl">Verified Companies</div>
+              </div>
+            </div>
+            <div class="hc-row">
+              <div class="hc-icon" style="background:rgba(245,158,11,.28)"><svg viewBox="0 0 24 24">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <path d="M8 21h8" />
+                  <path d="M12 17v4" />
+                </svg></div>
+              <div>
+                <div class="hc-val" data-target="1800" data-suffix="+">0</div>
+                <div class="hc-lbl">Internships Posted</div>
+              </div>
+            </div>
+          </div>
+          <div class="hc-live">
+            <div class="live-dot"></div>Platform is live &amp; growing
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div><span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner reveal rv-up">
+      <div class="stat-box">
+        <div class="stat-v"><span data-target="12000" data-suffix="+">0</span></div>
+        <div class="stat-l">Students Registered</div>
+      </div>
+      <div class="stat-box d1">
+        <div class="stat-v"><span data-target="400" data-suffix="+">0</span></div>
+        <div class="stat-l">Verified Companies</div>
+      </div>
+      <div class="stat-box d2">
+        <div class="stat-v"><span data-target="1800" data-suffix="+">0</span></div>
+        <div class="stat-l">Internships Posted</div>
+      </div>
+      <div class="stat-box d3">
+        <div class="stat-v"><span data-target="94" data-suffix="%">0</span></div>
+        <div class="stat-l">Student Satisfaction</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="section story-bg">
+    <div class="si">
+      <div class="story-grid">
+        <div class="story-vis reveal rv-left">
+          <div class="story-img-box">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80" alt="Team at work">
+          </div>
+          <div class="badge-a">
+            <div class="badge-a-val">2021</div>
+            <div class="badge-a-lbl">Year Founded</div>
+          </div>
+          <div class="badge-b">
+            <div class="badge-b-val">98%</div>
+            <div class="badge-b-lbl">Placement Rate</div>
+          </div>
+        </div>
+        <div class="story-text reveal rv-right">
+          <div class="sec-pill"><svg viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" />
+              <path d="M2 17l10 5 10-5" />
+              <path d="M2 12l10 5 10-5" />
+            </svg>Our Story</div>
+          <h2 class="sec-h2">We Exist to Close the Opportunity Gap</h2>
+          <p>Founded in Udupi, Karnataka, Conneto was born from a real frustration — talented students struggling to
+            find the right internships, and companies spending weeks on irrelevant applications.</p>
+          <p>We built a platform that connects the right people with the right opportunities, with tools that make the
+            process transparent, trackable, and genuinely useful for both sides.</p>
+          <div class="chips">
+            <div class="chip chip-b"><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Free for Students</div>
+            <div class="chip chip-g"><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Verified Listings</div>
+            <div class="chip chip-a"><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Real-time Updates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION — Beautiful dark animated cards -->
+  <section class="mv-section">
+    <div class="si" style="position:relative;z-index:1">
+      <div class="center reveal rv-up">
+        <div class="mv-dark-pill">Our Purpose</div>
+        <h2 class="mv-dark-h2">Mission &amp; Vision</h2>
+        <p class="mv-dark-sub">The beliefs and goals that drive every decision we make at Conneto.</p>
+      </div>
+      <div class="mv-cards-row">
+        <div class="mv-card mv-card-m">
+          <div class="mv-card-icon mvi-m">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="10 8 16 12 10 16 10 8" />
+            </svg>
+          </div>
+          <div class="mv-card-tag">Our Mission</div>
+          <div class="mv-card-title">Simplify. Connect. Launch.</div>
+          <div class="mv-card-desc">To simplify the internship hiring process by creating a transparent, efficient, and
+            accessible platform for students and recruiters — removing every layer of friction and creating genuine
+            connections that matter. We measure success not by traffic, but by careers launched and talent discovered.
+          </div>
+          <div class="mv-pillars">
+            <div class="mv-pillar mv-pillar-m">
+              <div class="mp-dot-m"></div>
+              <div class="mp-txt">Transparency at every application stage</div>
+            </div>
+            <div class="mv-pillar mv-pillar-m">
+              <div class="mp-dot-m"></div>
+              <div class="mp-txt">Accessibility for students across all backgrounds</div>
+            </div>
+            <div class="mv-pillar mv-pillar-m">
+              <div class="mp-dot-m"></div>
+              <div class="mp-txt">Efficiency for recruiters and hiring teams</div>
+            </div>
+          </div>
+        </div>
+        <div class="mv-card mv-card-v">
+          <div class="mv-card-icon mvi-v">
+            <svg viewBox="0 0 24 24">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
+          <div class="mv-card-tag">Our Vision</div>
+          <div class="mv-card-title">India's Most Trusted Internship Platform</div>
+          <div class="mv-card-desc">To become the most trusted internship ecosystem in India — a platform where every
+            student finds a launchpad that fits their potential, and every company discovers talent that powers their
+            next chapter. We envision a world where geography and background are never barriers to opportunity.</div>
+          <div class="mv-pillars">
+            <div class="mv-pillar mv-pillar-v">
+              <div class="mp-dot-v"></div>
+              <div class="mp-txt">10 lakh students placed by 2027</div>
+            </div>
+            <div class="mv-pillar mv-pillar-v">
+              <div class="mp-dot-v"></div>
+              <div class="mp-txt">Partnerships with 500+ universities</div>
+            </div>
+            <div class="mv-pillar mv-pillar-v">
+              <div class="mp-dot-v"></div>
+              <div class="mp-txt">Expand to Southeast Asia by 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section hiw-bg">
+    <canvas class="hiw-canvas" id="hiwCanvas"></canvas>
+    <div class="si">
+      <div class="center reveal rv-up">
+        <div class="sec-pill"><svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>The Process</div>
+        <h2 class="sec-h2">How Conneto Works</h2>
+        <p class="sec-sub">Two clear journeys, one powerful platform. Built for both students and companies.</p>
+      </div>
+      <div class="hiw-tabs-wrap reveal rv-up d1">
+        <div class="hiw-tabs">
+          <div class="hiw-tab active" onclick="switchTab('stu',this)">For Students</div>
+          <div class="hiw-tab" onclick="switchTab('com',this)">For Companies</div>
+        </div>
+      </div>
+      <div class="hiw-panel active" id="tab-stu">
+        <div class="flow-grid reveal rv-up d2">
+          <div class="flow-card">
+            <div class="fc-num">01</div>
+            <div class="fc-icon-wrap"><svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg></div>
+            <div class="fc-title">Create Your Profile</div>
+            <div class="fc-desc">Build a standout profile highlighting your skills, education, and projects that gets
+              you noticed by top companies.</div>
+            <div class="fc-arrow"><svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg></div>
+          </div>
+          <div class="flow-card d1">
+            <div class="fc-num">02</div>
+            <div class="fc-icon-wrap"><svg viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+              </svg></div>
+            <div class="fc-title">Upload Your Resume</div>
+            <div class="fc-desc">Add your latest resume so companies can evaluate your background even before you apply
+              to a role.</div>
+            <div class="fc-arrow"><svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg></div>
+          </div>
+          <div class="flow-card d2">
+            <div class="fc-num">03</div>
+            <div class="fc-icon-wrap"><svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg></div>
+            <div class="fc-title">Browse &amp; Apply</div>
+            <div class="fc-desc">Explore curated internship listings tailored to your skills and interests. Apply to any
+              role with one click.</div>
+            <div class="fc-arrow"><svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg></div>
+          </div>
+        </div>
+        <div class="flow-grid-bot reveal rv-up d3">
+          <div class="flow-card">
+            <div class="fc-num">04</div>
+            <div class="fc-icon-wrap"><svg viewBox="0 0 24 24">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg></div>
+            <div class="fc-title">Track Application Status</div>
+            <div class="fc-desc">Real-time updates at every stage. Know exactly where you stand — always.</div>
+            <div class="fc-arrow"><svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg></div>
+          </div>
+          <div class="flow-card d1">
+            <div class="fc-num">05</div>
+            <div class="fc-icon-wrap"><svg viewBox="0 0 24 24">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 14a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.574 2.81.7A2 2 0 0 1 22 18z" />
+              </svg></div>
+            <div class="fc-title">Get Shortlisted &amp; Interview</div>
+            <div class="fc-desc">Receive interview calls and schedule directly through the platform. Land your first
+              internship.</div>
+            <div class="fc-arrow"><svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg></div>
+          </div>
+        </div>
+      </div>
+      <div class="hiw-panel" id="tab-com">
+        <div class="flow-grid reveal rv-up d2">
+          <div class="flow-card">
+            <div class="fc-num">01</div>
+            <div class="fc-icon-wrap fc-icon-dk"><svg viewBox="0 0 24 24">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg></div>
+            <div class="fc-title">Register Company</div>
+            <div class="fc-desc">Set up a verified company profile that builds trust and makes your brand visible to
+              thousands of talented students.</div>
+            <div class="fc-arrow"><svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg></div>
+          </div>
+          <div class="flow-card d1">
+            <div class="fc-num">02</div>
+            <div class="fc-icon-wrap fc-icon-dk"><svg viewBox="0 0 24 24">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+              </svg></div>
+            <div class="fc-title">Post Opportunities</div>
+            <div class="fc-desc">Create detailed internship listings in under 5 minutes — specify role, stipend,
+              duration, and required skills.</div>
+            <div class="fc-arrow"><svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg></div>
+          </div>
+          <div class="flow-card d2">
+            <div class="fc-num">03</div>
+            <div class="fc-icon-wrap fc-icon-dk"><svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              </svg></div>
+            <div class="fc-title">Browse Profiles</div>
+            <div class="fc-desc">Access a rich pool of applicants. Browse student profiles, resumes, portfolios, and
+              skill endorsements.</div>
+            <div class="fc-arrow"><svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg></div>
+          </div>
+        </div>
+        <div class="flow-grid-bot reveal rv-up d3">
+          <div class="flow-card">
+            <div class="fc-num">04</div>
+            <div class="fc-icon-wrap fc-icon-dk"><svg viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg></div>
+            <div class="fc-title">Shortlist Candidates</div>
+            <div class="fc-desc">Use smart filters to sort by skills, GPA, and experience. Find the best candidates in
+              minutes, not days.</div>
+            <div class="fc-arrow"><svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg></div>
+          </div>
+          <div class="flow-card d1">
+            <div class="fc-num">05</div>
+            <div class="fc-icon-wrap fc-icon-dk"><svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg></div>
+            <div class="fc-title">Schedule Interviews</div>
+            <div class="fc-desc">Reach out and book interviews directly through the platform. Coordinate, confirm, and
+              hire all in one place.</div>
+            <div class="fc-arrow"><svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6" />
+              </svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE — Dark section -->
+  <section class="why-bg">
+    <div class="si">
+      <div class="center reveal rv-up">
+        <div class="mv-dark-pill" style="color:#FCD34D">Why Conneto</div>
+        <h2 class="mv-dark-h2">Five Reasons to Choose Us</h2>
+        <p class="mv-dark-sub" style="margin:0 auto">Every feature is purpose-built for India's internship market —
+          designed for both students and companies.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal rv-sc">
+          <div class="w-num">01</div>
+          <div class="w-icon wi-bl"><svg viewBox="0 0 24 24">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg></div>
+          <div class="w-h">Easy Application</div>
+          <p class="w-p">Apply to any internship in minutes. No complicated forms — just a clean, fast experience built
+            for speed.</p>
+        </div>
+        <div class="why-card reveal rv-sc d1">
+          <div class="w-num">02</div>
+          <div class="w-icon wi-gr"><svg viewBox="0 0 24 24">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg></div>
+          <div class="w-h">Verified Companies</div>
+          <p class="w-p">Every company is vetted before listing. No scams, no fake opportunities — only real career
+            growth awaits.</p>
+        </div>
+        <div class="why-card reveal rv-sc d2">
+          <div class="w-num">03</div>
+          <div class="w-icon wi-am"><svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+            </svg></div>
+          <div class="w-h">Smart Shortlisting</div>
+          <p class="w-p">AI-assisted filters help companies find the perfect match in seconds — not weeks of manual
+            screening.</p>
+        </div>
+        <div class="why-card reveal rv-sc d3">
+          <div class="w-num">04</div>
+          <div class="w-icon wi-vi"><svg viewBox="0 0 24 24">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg></div>
+          <div class="w-h">Real-time Tracking</div>
+          <p class="w-p">Students always know exactly where their application stands — full visibility at every single
+            stage.</p>
+        </div>
+        <div class="why-card reveal rv-sc d4">
+          <div class="w-num">05</div>
+          <div class="w-icon wi-re"><svg viewBox="0 0 24 24">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg></div>
+          <div class="w-h">Secure by Design</div>
+          <p class="w-p">Enterprise-grade security with full data control. Your information is yours — always safe and
+            protected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section" style="background:#F4F7FF">
+    <div class="si">
+      <div class="team-grid">
+        <div class="team-text reveal rv-left">
+          <div class="sec-pill"><svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>Our Team</div>
+          <h2 class="sec-h2">A Team That Cares About Your Career</h2>
+          <p class="team-text" style="font-size:1rem;color:var(--ts);margin-bottom:.9rem">We are a passionate team of
+            educators, engineers, and recruiters who experienced the frustration of a broken internship system. So we
+            built something better.</p>
+          <p style="font-size:1rem;color:var(--ts);font-weight:500;line-height:1.82">Based in Udupi, Karnataka, we work
+            closely with universities and top companies across India to create meaningful connections that last beyond
+            the internship.</p>
+          <div class="chips">
+            <div class="chip chip-b"><svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>Udupi, Karnataka</div>
+            <div class="chip chip-g"><svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>Pan-India Coverage</div>
+          </div>
+        </div>
+        <div class="img-mosaic reveal rv-right">
+          <div class="im-item im-tall">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&q=80" alt="Team at work">
+            <div class="im-overlay"><span class="im-lbl">Our Udupi HQ</span></div>
+          </div>
+          <div class="im-item">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=700&q=80" alt="Product team">
+            <div class="im-overlay"><span class="im-lbl">Product Team</span></div>
+          </div>
+          <div class="im-item">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80" alt="Strategy session">
+            <div class="im-overlay"><span class="im-lbl">Strategy Sessions</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <canvas id="ctaCanvas"></canvas>
+    <div class="cta-inner reveal rv-up">
+      <h2>Ready to Find Your Next Opportunity?</h2>
+      <p>Join thousands of students and hundreds of companies already building careers on Conneto — India's fastest
+        growing internship platform.</p>
+      <div class="cta-btns">
+        <a href="#" class="btn-cp">Join as Student</a>
+        <a href="contact.html" class="btn-cs">Contact Our Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-top">
+      <div>
+        <div class="f-logo">Conneto</div>
+        <p class="f-desc">The smart internship portal bridging students and companies across India.</p>
+        <div class="f-socials">
+          <div class="f-soc"><svg viewBox="0 0 24 24">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg></div>
+          <div class="f-soc"><svg viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+              <circle cx="4" cy="4" r="2" />
+            </svg></div>
+          <div class="f-soc"><svg viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg></div>
+        </div>
+      </div>
+      <div class="f-col">
+        <h5>Platform</h5><a href="#">Internships</a><a href="#">For Students</a><a href="#">For Companies</a><a
+          href="#">Pricing</a>
+      </div>
+      <div class="f-col">
+        <h5>Company</h5><a href="about.html">About Us</a><a href="#">Blog</a><a href="#">Careers</a><a
+          href="contact.html">Contact</a>
+      </div>
+      <div class="f-col">
+        <h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cookies</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p>2024 Conneto Technologies Pvt. Ltd. All rights reserved.</p>
+      <div class="f-bl"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a></div>
+    </div>
+  </footer>
+
+  <script>
+    /* NAV */
+    window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('solid', scrollY > 60));
+
+    /* PARTICLES */
+    function initParticles(id, opts) {
+      const c = document.getElementById(id); if (!c) return;
+      const ctx = c.getContext('2d'); let W, H, P = [];
+      const resize = () => {
+        W = c.width = c.offsetWidth; H = c.height = c.offsetHeight; P = [];
+        for (let i = 0; i < (opts.n || 65); i++)P.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .5, vy: (Math.random() - .5) * .5, r: Math.random() * 1.8 + .8 })
+      };
+      resize(); window.addEventListener('resize', resize);
+      (function loop() {
+        ctx.clearRect(0, 0, W, H);
+        P.forEach(p => {
+          p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.28); ctx.fillStyle = 'rgba(255,255,255,.7)'; ctx.fill()
+        });
+        for (let i = 0; i < P.length; i++)for (let j = i + 1; j < P.length; j++) {
+          const dx = P[i].x - P[j].x, dy = P[i].y - P[j].y, d = Math.hypot(dx, dy), D = opts.dist || 125;
+          if (d < D) {
+            ctx.beginPath(); ctx.moveTo(P[i].x, P[i].y); ctx.lineTo(P[j].x, P[j].y);
+            ctx.strokeStyle = `rgba(255,255,255,${(1 - d / D) * .25})`; ctx.lineWidth = .7; ctx.stroke()
+          }
+        }
+        requestAnimationFrame(loop);
+      })();
+    }
+    initParticles('heroCanvas', { n: 70, dist: 130 });
+    initParticles('ctaCanvas', { n: 50, dist: 120 });
+    initParticles('hiwCanvas', { n: 55, dist: 110 });
+
+    /* REVEAL */
+    const ro = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('on'); ro.unobserve(x.target) } }), { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(r => ro.observe(r));
+
+    /* MV CARDS FADE IN */
+    const mvObs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('mv-on'); mvObs.unobserve(x.target) } }), { threshold: .15 });
+    document.querySelectorAll('.mv-card').forEach(el => mvObs.observe(el));
+
+    /* COUNTERS */
+    function count(el) {
+      const t = +el.dataset.target, s = el.dataset.suffix || '', d = 2200, t0 = performance.now();
+      (function f(now) { const p = Math.min((now - t0) / d, 1); el.textContent = Math.round((1 - Math.pow(2, -10 * p)) * t).toLocaleString() + s; if (p < 1) requestAnimationFrame(f) })(t0)
+    }
+    const co = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) { count(x.target); co.unobserve(x.target) } }), { threshold: .5 });
+    document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
+
+    /* TABS */
+    function switchTab(id, el) {
+      document.querySelectorAll('.hiw-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.hiw-panel').forEach(p => p.classList.remove('active'));
+      el.classList.add('active'); document.getElementById('tab-' + id).classList.add('active');
+    }
+
+    /* HAMBURGER MENU */
+    function toggleMenu() {
+      const h = document.getElementById('hamburger');
+      const m = document.getElementById('mobileMenu');
+      h.classList.toggle('open');
+      m.classList.toggle('open');
+    }
+    document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => {
+      document.getElementById('hamburger').classList.remove('open');
+      document.getElementById('mobileMenu').classList.remove('open');
+    }));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 820) {
+        document.getElementById('hamburger').classList.remove('open');
+        document.getElementById('mobileMenu').classList.remove('open');
+      }
+    });
+  </script>
+</body>
+
+</html>

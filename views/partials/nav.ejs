@@ -1,0 +1,22 @@
+<nav
+    style="background:#0D1B3E;padding:1rem 7%;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;left:0;right:0;z-index:900">
+    <a href="/"
+        style="font-family:Outfit,sans-serif;font-size:1.5rem;font-weight:900;color:#fff;text-decoration:none">Conn<span
+            style="color:#60A5FA">eto</span></a>
+    <div style="display:flex;gap:1rem;align-items:center">
+        <a href="/internships" style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem">Internships</a>
+        <a href="/about" style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem">About</a>
+        <a href="/contact" style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem">Contact</a>
+        <% if (user) { %>
+            <a href="/<%= user.role %>/dashboard" style="color:#93C5FD;font-weight:700;font-size:.9rem">Dashboard</a>
+            <a href="/auth/logout"
+                style="background:#2563EB;color:#fff;padding:.4rem 1rem;border-radius:8px;font-size:.85rem;text-decoration:none">Logout</a>
+            <% } else { %>
+                <a href="/auth/login" style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem">Sign
+                    In</a>
+                <a href="/auth/register"
+                    style="background:#2563EB;color:#fff;padding:.4rem 1rem;border-radius:8px;font-size:.85rem;text-decoration:none">Get
+                    Started</a>
+                <% } %>
+    </div>
+</nav>
