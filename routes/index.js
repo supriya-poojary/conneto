@@ -1,5 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+
+// Project root directory
+const ROOT = path.resolve(__dirname, '..');
 
 // Home page
 router.get('/', (req, res) => {
@@ -8,12 +12,12 @@ router.get('/', (req, res) => {
 
 // About page
 router.get('/about', (req, res) => {
-    res.sendFile(require('path').join(__dirname, '../about.html'));
+    res.sendFile(path.join(ROOT, 'about.html'));
 });
 
 // Contact page
 router.get('/contact', (req, res) => {
-    res.sendFile(require('path').join(__dirname, '../contact.html'));
+    res.sendFile(path.join(ROOT, 'contact.html'));
 });
 
 module.exports = router;

@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Conneto</title>
+  <link rel="stylesheet" href="/css/style.css">
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
     rel="stylesheet">
   <style>
     *,
@@ -1819,32 +1820,45 @@
 </head>
 
 <body>
-
-  <!-- NAV -->
-  <nav class="nav" id="navbar">
-    <div class="nav-logo">Conn<span class="logo-acc">eto</span></div>
-    <div class="nav-links">
-      <a href="about.html">About</a>
-      <a href="contact.html" class="active">Contact</a>
-    </div>
-    <div class="nav-cta">
-      <a href="#" class="btn-nav-g">Sign In</a>
-      <a href="#" class="btn-nav-s">Get Started</a>
-    </div>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="about.html">About</a>
-    <a href="contact.html" class="active">Contact</a>
-    <div class="mobile-menu-cta">
-      <a href="#"
-        style="background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85)">Sign
-        In</a>
-      <a href="#" style="background:var(--blue-mid);color:#fff">Get Started</a>
+  <!-- DYNAMIC BACKGROUND SYSTEMS -->
+  <div class="bg-wrap">
+    <div class="bg-l"
+      style="background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&q=40'); opacity: 0.1;">
     </div>
   </div>
+  <div class="orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="orb orb4"></div>
+  </div>
+  <canvas id="pCanvas"></canvas>
+  <div id="cGlow"></div>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="tbi">
+      <div class="tdot"></div>
+      Platform Live — 12,400+ Active Internships Across India
+    </div>
+    <div class="tbi" style="gap:24px;">
+      <span>hello@conneto.in</span>
+      <span>Mon–Sat: 9am – 7pm IST</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <a href="/" class="logo">CONNETO</a>
+    <ul class="nvl">
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact" class="active">Contact</a></li>
+    </ul>
+    <div class="nvr">
+      <a href="#" class="btn btn-outline">Sign In</a>
+      <a href="/company" class="btn btn-primary">Post Internship</a>
+    </div>
+  </nav>
 
 
   <!-- HERO — rich dark animated -->
@@ -2314,6 +2328,16 @@
         document.getElementById('hamburger').classList.remove('open');
         document.getElementById('mobileMenu').classList.remove('open');
       }
+    });
+  </script>
+  <script src="/js/animations.js"></script>
+  <script>
+    // Cursor glow effect (purple theme)
+    document.addEventListener('mousemove', (e) => {
+      const glow = document.getElementById('cGlow');
+      if (glow) { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; }
+      const bg = document.querySelectorAll('.bg-l');
+      bg.forEach((l, i) => { l.style.transform = `translate(${e.clientX * (i + 1) * 0.003}px, ${e.clientY * (i + 1) * 0.003}px)`; });
     });
   </script>
 </body>
