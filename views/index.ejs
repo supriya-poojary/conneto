@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
@@ -1402,6 +1403,786 @@
             observer.observe(el);
         });
     </script>
+=======
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conneto — India's Premier Internship Portal</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- DYNAMIC BACKGROUND SYSTEMS -->
+  <div class="bg-wrap">
+    <div class="bg-l"
+      style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=40'); opacity: 0.1;">
+    </div>
+    <div class="bg-l"
+      style="background-image: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1920&q=40'); opacity: 0.08;">
+    </div>
+    <div class="bg-l"
+      style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=40'); opacity: 0.06;">
+    </div>
+  </div>
+  <div class="orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="orb orb4"></div>
+  </div>
+  <canvas id="pCanvas"></canvas>
+  <div id="cGlow"></div>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="tbi">
+      <div class="tdot"></div>
+      Platform Live — 12,400+ Active Internships Across India
+    </div>
+    <div class="tbi" style="gap:24px;">
+      <span>hello@conneto.in</span>
+      <span>Mon–Sat: 9am – 7pm IST</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <a href="/" class="logo">CONNETO</a>
+    <ul class="nvl">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nvr">
+      <a href="#" class="btn btn-outline">Sign In</a>
+      <a href="/company" class="btn btn-primary">Post Internship</a>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hpbg"></div>
+      <div class="hrings">
+        <div class="hring hr1"></div>
+        <div class="hring hr2"></div>
+      </div>
+
+      <!-- Interactive Hero Chips -->
+      <div class="hchips">
+        <div class="hchip hc1">
+          <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&q=80" alt="tech">
+          <div>
+            <div style="font-family:'Syne'; font-size:20px; font-weight:800; color:var(--p2);">12,400+</div>
+            <div style="font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Active
+              Listings</div>
+          </div>
+        </div>
+        <div class="hchip hc2">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=100&q=80" alt="data">
+          <div>
+            <div style="font-family:'Syne'; font-size:20px; font-weight:800; color:var(--pk);">98K+</div>
+            <div style="font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Students
+              Placed</div>
+          </div>
+        </div>
+        <div class="hchip hc3">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80" alt="student">
+          <div>
+            <div style="font-family:'Syne'; font-size:18px; font-weight:800; color:var(--v4);">+34%</div>
+            <div style="font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Weekly Growth
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hin">
+        <div class="hero-left">
+          <div class="hbadge">India's Premier Talent Infrastructure</div>
+          <h1>Where <span class="gt">Talent</span> Builds<br>The Future of<br><span class="gt">Innovation</span></h1>
+          <p class="hdesc">Conneto bridges ambitious academic talent with visionary companies through a verified
+            infrastructure designed for speed, scale, and professional impact.</p>
+
+          <div class="hsearch">
+            <input type="text" placeholder="Search role, skill, or enterprise...">
+            <select>
+              <option>All Cities</option>
+              <option>Bangalore</option>
+              <option>Mumbai</option>
+              <option>Remote</option>
+            </select>
+            <button>Search</button>
+          </div>
+
+          <div style="display:flex; gap:40px; margin-top:40px;" class="rev">
+            <div>
+              <div style="font-family:'Syne'; font-size:32px; font-weight:800; color:#fff;">12K+</div>
+              <div style="font-size:12px; font-weight:700; color:var(--muted); text-transform:uppercase;">Live Roles
+              </div>
+            </div>
+            <div>
+              <div style="font-family:'Syne'; font-size:32px; font-weight:800; color:#fff;">4K+</div>
+              <div style="font-size:12px; font-weight:700; color:var(--muted); text-transform:uppercase;">Partners</div>
+            </div>
+            <div>
+              <div style="font-family:'Syne'; font-size:32px; font-weight:800; color:#fff;">96%</div>
+              <div style="font-size:12px; font-weight:700; color:var(--muted); text-transform:uppercase;">Success Rate
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hrcard">
+            <div class="hch">
+              <h3 style="font-family:'Syne'; font-weight:800; color:#fff;">Featured Opportunities</h3>
+              <span
+                style="background:rgba(74,222,128,0.1); color:#4ade80; padding:5px 15px; border-radius:100px; font-size:11px; font-weight:800;">LIVE
+                HUB</span>
+            </div>
+
+            <div class="ilst">
+              <div class="ii">
+                <div class="colog"><img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&q=80">
+                </div>
+                <div class="iinf">
+                  <div class="irol">Frontend Architect Intern</div>
+                  <div class="ico">TechFlow Systems — Bangalore</div>
+                </div>
+                <div class="ibdg"><span class="bdg">REMOTE</span>
+                  <div class="istip">₹18,000/mo</div>
+                </div>
+              </div>
+              <div class="ii">
+                <div class="colog"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&q=80">
+                </div>
+                <div class="iinf">
+                  <div class="irol">Data Science Explorer</div>
+                  <div class="ico">Nexus AI — Mumbai</div>
+                </div>
+                <div class="ibdg"><span class="bdg">HYBRID</span>
+                  <div class="istip">₹25,000/mo</div>
+                </div>
+              </div>
+              <div class="ii">
+                <div class="colog"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=100&q=80">
+                </div>
+                <div class="iinf">
+                  <div class="irol">UI/UX Strategy Intern</div>
+                  <div class="ico">PixelForge — Delhi</div>
+                </div>
+                <div class="ibdg"><span class="bdg">ON-SITE</span>
+                  <div class="istip">₹15,000/mo</div>
+                </div>
+              </div>
+              <div class="ii">
+                <div class="colog"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=100&q=80">
+                </div>
+                <div class="iinf">
+                  <div class="irol">DevOps Engineer Intern</div>
+                  <div class="ico">CloudNine Tech — Hyderabad</div>
+                </div>
+                <div class="ibdg"><span class="bdg">REMOTE</span>
+                  <div class="istip">₹22,000/mo</div>
+                </div>
+              </div>
+              <div class="ii">
+                <div class="colog"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=100&q=80">
+                </div>
+                <div class="iinf">
+                  <div class="irol">Cyber Security Trainee</div>
+                  <div class="ico">SecureNode — Pune</div>
+                </div>
+                <div class="ibdg"><span class="bdg">HYBRID</span>
+                  <div class="istip">₹19,500/mo</div>
+                </div>
+              </div>
+              <div class="ii">
+                <div class="colog"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=100&q=80">
+                </div>
+                <div class="iinf">
+                  <div class="irol">Cloud Solution Intern</div>
+                  <div class="ico">AzurePoint — Remote</div>
+                </div>
+                <div class="ibdg"><span class="bdg">REMOTE</span>
+                  <div class="istip">₹20,500/mo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee">
+      <div class="m-track">
+        <div class="m-item"><img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=40"> Trusted by 4,000+
+          Organizations</div>
+        <div class="m-item"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=40"> 12,000+ Live
+          Internships</div>
+        <div class="m-item"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=40"> 98K+ Students
+          Successfully Placed</div>
+        <div class="m-item"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=40"> Stipends up to
+          ₹50,000/mo</div>
+        <div class="m-item"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=40"> Verified
+          Professional Network</div>
+        <!-- Duplicates -->
+        <div class="m-item"><img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=40"> Trusted by 4,000+
+          Organizations</div>
+        <div class="m-item"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=40"> 12,000+ Live
+          Internships</div>
+        <div class="m-item"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=40"> 98K+ Students
+          Successfully Placed</div>
+        <div class="m-item"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=40"> Stipends up to
+          ₹50,000/mo</div>
+        <div class="m-item"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=40"> Verified
+          Professional Network</div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <section class="hiw">
+      <div class="si">
+        <div class="rev" style="text-align:center; max-width:800px; margin:0 auto 80px;">
+          <span class="stag">The Process</span>
+          <h2 class="stit">Seamless Career <span class="gt">Integration</span></h2>
+          <p class="ssub" style="margin:0 auto;">From foundational profile curation to strategic organizational
+            placement — every step is optimized for high-impact results.</p>
+        </div>
+        <div class="swrap stgg">
+          <div class="scard">
+            <div class="sn">01</div>
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&q=80">
+            <h3>Curate Profile</h3>
+            <p>Build a rich digital footprint showcasing your technical proficiency and academic excellence to top
+              recruiters.</p>
+          </div>
+          <div class="scard">
+            <div class="sn">02</div>
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=300&q=80">
+            <h3>Strategic Discovery</h3>
+            <p>Utilize AI-accelerated matching to discover roles that align with your specialized skills and career
+              goals.</p>
+          </div>
+          <div class="scard">
+            <div class="sn">03</div>
+            <img src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=300&q=80">
+            <h3>Verification AI</h3>
+            <p>Our proprietary node validates your technical credentials and project history for industrial-grade
+              compliance.</p>
+          </div>
+          <div class="scard">
+            <div class="sn">04</div>
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=300&q=80">
+            <h3>Verified Selection</h3>
+            <p>Engage in one-click applications. Our system ensures top companies identify elite candidates instantly.
+            </p>
+          </div>
+          <div class="scard">
+            <div class="sn">05</div>
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&q=80">
+            <h3>Career Pulse</h3>
+            <p>Receive real-time feedback and direct interaction channels with hiring managers across India's top nodes.
+            </p>
+          </div>
+          <div class="scard">
+            <div class="sn">06</div>
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=300&q=80">
+            <h3>Industrial Scale</h3>
+            <p>Onboard into your role with validated certifications and a secure professional roadmap for global
+              success.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR COMPANIES / SOLUTIONS -->
+    <section id="solutions">
+      <div class="si">
+        <div class="fgrid">
+          <div class="fimgw revL">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1000&q=80" class="fmimg">
+            <div class="fchip">
+              <div style="font-family:'Syne'; font-size:28px; font-weight:800; color:var(--p2);">4,000+</div>
+              <div style="font-size:11px; color:var(--muted); text-transform:uppercase;">Active Partners</div>
+            </div>
+          </div>
+          <div class="revR">
+            <span class="stag">For Enterprises</span>
+            <h2 class="stit">Acquire Elite <span class="gt">Student Talent</span></h2>
+            <p class="ssub">Conneto provides companies the infrastructure to post roles, access verified student
+              pipelines, and optimize the entire recruitment lifecycle.</p>
+            <div class="flist">
+              <div class="fitem">
+                <div class="fiw"><img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=100&q=80">
+                </div>
+                <div>
+                  <h4>Rapid Listing Deployment</h4>
+                  <p>Create and promote internship tracks across India's top institutions in minutes.</p>
+                </div>
+              </div>
+              <div class="fitem">
+                <div class="fiw"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80">
+                </div>
+                <div>
+                  <h4>Verified Profile Access</h4>
+                  <p>Filter by GPA, technical stack, and verified project history for perfect matches.</p>
+                </div>
+              </div>
+              <div class="fitem">
+                <div class="fiw"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=100&q=80"></div>
+                <div>
+                  <h4>Advanced Shortlisting</h4>
+                  <p>Manage high volumes of applicants with AI scoring and centralized scheduling.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR STUDENTS -->
+    <section style="background:rgba(124, 58, 237, 0.03);">
+      <div class="si">
+        <div class="fgrid" style="direction:rtl">
+          <div class="fimgw revR" style="direction:ltr">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000&q=80" class="fmimg">
+            <div class="fchip" style="left:auto; right:-30px;">
+              <div style="font-family:'Syne'; font-size:28px; font-weight:800; color:var(--pk);">96%</div>
+              <div style="font-size:11px; color:var(--muted); text-transform:uppercase;">Success Rate</div>
+            </div>
+          </div>
+          <div class="revL" style="direction:ltr">
+            <span class="stag">For Students</span>
+            <h2 class="stit">Scale Your <span class="gt">Professional Future</span></h2>
+            <p class="ssub">Your profile is your passport. Build it once and let elite opportunities come to you — from
+              innovative startups to Fortune 500 giants.</p>
+            <div class="flist">
+              <div class="fitem">
+                <div class="fiw"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=100&q=80">
+                </div>
+                <div>
+                  <h4>AI-Powered Matching</h4>
+                  <p>Discover roles that genuinely align with your specialized skills and career trajectories.</p>
+                </div>
+              </div>
+              <div class="fitem">
+                <div class="fiw"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=100&q=80">
+                </div>
+                <div>
+                  <h4>Digital Portfolio Builder</h4>
+                  <p>Showcase projects and certifications in a professional format recruiters love.</p>
+                </div>
+              </div>
+              <div class="fitem">
+                <div class="fiw"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=100&q=80"></div>
+                <div>
+                  <h4>Real-Time Tracking</h4>
+                  <p>Know exactly where your application stands at every stage with instant alerts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES / ABOUT -->
+    <section id="about" class="section cats">
+      <div class="si">
+        <div class="rev" style="text-align:center; max-width:800px; margin:0 auto 60px;">
+          <span class="stag">Explore Domains</span>
+          <h2 class="stit">Peak <span class="gt">Specializations</span></h2>
+          <p class="ssub" style="margin:0 auto;">Thousands of opportunities across high-impact industries, curated for
+            India's best talent.</p>
+        </div>
+        <div class="cgrid stgg">
+          <div class="ccard"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400">
+            <div class="ccont"><span class="ccnt">2.4K+ Openings</span>
+              <h3>Software Development</h3>
+              <p>Cloud, Kernel, Web & Mobile</p>
+            </div>
+          </div>
+          <div class="ccard"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400">
+            <div class="ccont"><span class="ccnt">1.8K+ Openings</span>
+              <h3>Data & Analytics</h3>
+              <p>ML, AI, Business Intel</p>
+            </div>
+          </div>
+          <div class="ccard"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400">
+            <div class="ccont"><span class="ccnt">1.2K+ Openings</span>
+              <h3>Creative Strategy</h3>
+              <p>UI/UX, Brand & Motion</p>
+            </div>
+          </div>
+          <div class="ccard"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400">
+            <div class="ccont"><span class="ccnt">950+ Openings</span>
+              <h3>Growth Marketing</h3>
+              <p>Digital, Content & SEO</p>
+            </div>
+          </div>
+          <div class="ccard"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400">
+            <div class="ccont"><span class="ccnt">840+ Openings</span>
+              <h3>Cyber Systems</h3>
+              <p>SecOps, Encryption Hub</p>
+            </div>
+          </div>
+          <div class="ccard"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400">
+            <div class="ccont"><span class="ccnt">720+ Openings</span>
+              <h3>Cloud Infra</h3>
+              <p>DevOps, AWS, Azure Node</p>
+            </div>
+          </div>
+          <div class="ccard"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400">
+            <div class="ccont"><span class="ccnt">410+ Openings</span>
+              <h3>IoT & Edge</h3>
+              <p>Hardware Systems Architecture</p>
+            </div>
+          </div>
+          <div class="ccard"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400">
+            <div class="ccont"><span class="ccnt">380+ Openings</span>
+              <h3>BioTech Node</h3>
+              <p>Health Sci, Genomics Labs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="sts">
+      <div class="si">
+        <div class="rev" style="text-align:center; margin-bottom:60px;">
+          <span class="stag">The Conneto Effect</span>
+          <h2 class="stit">Platform <span class="gt">Impact Metrics</span></h2>
+        </div>
+        <div class="stgrid stgg">
+          <div class="stcard">
+            <div class="stn" data-target="98000" data-suffix="K+">98K+</div>
+            <div class="stl">Students Placed</div>
+          </div>
+          <div class="stcard">
+            <div class="stn" data-target="4000" data-suffix="+">4,000+</div>
+            <div class="stl">Active Partners</div>
+          </div>
+          <div class="stcard">
+            <div class="stn" data-target="12000" data-suffix="+">12K+</div>
+            <div class="stl">Live Listings</div>
+          </div>
+          <div class="stcard">
+            <div class="stn" data-target="96" data-suffix="%">96%</div>
+            <div class="stl">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUSTED BY -->
+    <section>
+      <div class="si">
+        <div class="rev" style="text-align:center; max-width:800px; margin:0 auto 70px;">
+          <span class="stag">Our Network</span>
+          <h2 class="stit">Trusted by <span class="gt">Elite Foundations</span></h2>
+          <p class="ssub" style="margin:0 auto;">From high-growth startups to industrial giants, Conneto powers
+            internship hiring for India's finest.</p>
+        </div>
+        <div class="cogrid stgg">
+          <div class="cocard"><img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=500" class="coimg">
+            <div class="coinf">
+              <div class="conm">TechFlow Systems</div>
+              <div style="font-size:13px; color:var(--muted);">Bangalore — SaaS Hub</div><span class="cotag">48
+                Openings</span>
+            </div>
+          </div>
+          <div class="cocard"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500"
+              class="coimg">
+            <div class="coinf">
+              <div class="conm">Nexus AI</div>
+              <div style="font-size:13px; color:var(--muted);">Mumbai — Neural Labs</div><span class="cotag">32
+                Openings</span>
+            </div>
+          </div>
+          <div class="cocard"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=500" class="coimg">
+            <div class="coinf">
+              <div class="conm">PixelForge</div>
+              <div style="font-size:13px; color:var(--muted);">Delhi — Creative Agency</div><span class="cotag">19
+                Openings</span>
+            </div>
+          </div>
+          <div class="cocard"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500"
+              class="coimg">
+            <div class="coinf">
+              <div class="conm">CloudNine Tech</div>
+              <div style="font-size:13px; color:var(--muted);">Hyderabad — DevOps</div><span class="cotag">27
+                Openings</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" style="background:rgba(67,56,202,0.03);">
+      <div class="si">
+        <div class="rev" style="text-align:center; max-width:800px; margin:0 auto 80px;">
+          <span class="stag">Success Stories</span>
+          <h2 class="stit">What They're <span class="gt">Saying</span></h2>
+        </div>
+        <div class="tgrid stgg">
+          <div class="tcard">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600" class="tstrip">
+            <div class="tbody">
+              <div class="stars">★★★★★</div>
+              <div class="qm">“</div>
+              <p>Conneto helped me land a Cloud Engineering role at TechFlow within 14 days. The platform's verification
+                logic is genuinely impressive.</p>
+              <div class="tprof">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" class="tav">
+                <div>
+                  <div class="tnm">Priya Sharma</div>
+                  <div class="trl">B.Tech CS — TechFlow Intern</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tcard">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600" class="tstrip">
+            <div class="tbody">
+              <div class="stars">★★★★★</div>
+              <div class="qm">“</div>
+              <p>The profile quality we find on Conneto is consistently higher than any other platform. It's now our
+                primary talent pipeline.</p>
+              <div class="tprof">
+                <img src="https://randomuser.me/api/portraits/men/44.jpg" class="tav">
+                <div>
+                  <div class="tnm">Rahul Mehta</div>
+                  <div class="trl">HR Director — Nexus AI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tcard">
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=600" class="tstrip">
+            <div class="tbody">
+              <div class="stars">★★★★★</div>
+              <div class="qm">“</div>
+              <p>Fast, efficient, and professional. I received four shortlist invites within my first week. The
+                dashboard is a lifesaver.</p>
+              <div class="tprof">
+                <img src="https://randomuser.me/api/portraits/men/67.jpg" class="tav">
+                <div>
+                  <div class="tnm">Arjun Nair</div>
+                  <div class="trl">MBA — FinEdge Lead</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tcard">
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600" class="tstrip">
+            <div class="tbody">
+              <div class="stars">★★★★★</div>
+              <div class="qm">“</div>
+              <p>We've integrated Conneto into our graduate engineering program. The success rate for transition to
+                full-time is 92%.</p>
+              <div class="tprof">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" class="tav">
+                <div>
+                  <div class="tnm">Sarah Jenkins</div>
+                  <div class="trl">Talent Head — CloudNine</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tcard">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600" class="tstrip">
+            <div class="tbody">
+              <div class="stars">★★★★★</div>
+              <div class="qm">“</div>
+              <p>The depth of industrial projects available here is mind-blowing. It's not just an internship, it's a
+                launchpad.</p>
+              <div class="tprof">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="tav">
+                <div>
+                  <div class="tnm">Vikram Rao</div>
+                  <div class="trl">IIT Delhi — Data Science</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tcard">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600" class="tstrip">
+            <div class="tbody">
+              <div class="stars">★★★★★</div>
+              <div class="qm">“</div>
+              <p>Seamless onboarding and high-impact mentorship. Conneto is truly the bridge India's students need.</p>
+              <div class="tprof">
+                <img src="https://randomuser.me/api/portraits/women/61.jpg" class="tav">
+                <div>
+                  <div class="tnm">Meera Kapur</div>
+                  <div class="trl">Founder — CreativeScale</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section>
+      <div class="si">
+        <div class="rev"
+          style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:60px; flex-wrap:wrap; gap:20px;">
+          <div><span class="stag">Resources</span>
+            <h2 class="stit" style="margin:0">Career <span class="gt">Insights</span></h2>
+          </div>
+          <a href="#" class="btn btn-outline">Explore Blog</a>
+        </div>
+        <div class="bgrid stgg">
+          <div class="bcard">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600" class="bimg">
+            <div class="bbody">
+              <span class="btag">Strategy</span>
+              <h3 style="font-family:'Syne'; font-size:18px; line-height:1.4; margin-bottom:12px;">Resume Mistakes to
+                Avoid in 2026</h3>
+              <p style="font-size:13.5px; color:var(--muted); line-height:1.6;">How to beat modern AI screening systems
+                and get your profile to human eyes.</p>
+              <div class="bmeta"><img src="https://randomuser.me/api/portraits/women/45.jpg"><span>Ananya Roy — 5 min
+                  read</span></div>
+            </div>
+          </div>
+          <div class="bcard">
+            <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=600" class="bimg">
+            <div class="bbody">
+              <span class="btag">Interviews</span>
+              <h3 style="font-family:'Syne'; font-size:18px; line-height:1.4; margin-bottom:12px;">Acing Your Tech
+                Startup Interview</h3>
+              <p style="font-size:13.5px; color:var(--muted); line-height:1.6;">Learn what founders actually look for
+                beyond technical skills.</p>
+              <div class="bmeta"><img src="https://randomuser.me/api/portraits/men/52.jpg"><span>Karan Mehta — 7 min
+                  read</span></div>
+            </div>
+          </div>
+          <div class="bcard">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600" class="bimg">
+            <div class="bbody">
+              <span class="btag">Growth</span>
+              <h3 style="font-family:'Syne'; font-size:18px; line-height:1.4; margin-bottom:12px;">Building a Digital
+                Portfolio</h3>
+              <p style="font-size:13.5px; color:var(--muted); line-height:1.6;">Showcase your projects in a way that
+                proves professional competence.</p>
+              <div class="bmeta"><img src="https://randomuser.me/api/portraits/women/61.jpg"><span>Divya K. — 6 min
+                  read</span></div>
+            </div>
+          </div>
+          <div class="bcard">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600" class="bimg">
+            <div class="bbody">
+              <span class="btag">Future</span>
+              <h3 style="font-family:'Syne'; font-size:18px; line-height:1.4; margin-bottom:12px;">The Rise of AI
+                Internships</h3>
+              <p style="font-size:13.5px; color:var(--muted); line-height:1.6;">Understanding the shift towards core AI
+                and Machine Learning roles.</p>
+              <div class="bmeta"><img src="https://randomuser.me/api/portraits/men/22.jpg"><span>Alex Chen — 8 min
+                  read</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="ctasec rev">
+        <span class="stag" style="justify-content:center;">Get Started</span>
+        <h2 class="stit">Ready to <span class="gt">Innovate?</span></h2>
+        <p class="ssub" style="margin:0 auto 40px; color:#fff !important; opacity:0.9;">Whether building a career or a
+          team, Conneto provides the verified foundation you need to succeed in the modern industrial landscape.</p>
+
+        <div
+          style="display:grid; grid-template-columns: repeat(3, 1fr); gap:30px; margin-bottom:50px; text-align:left;">
+          <div
+            style="background:rgba(255,255,255,0.05); padding:24px; border-radius:20px; border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(20px); animation:floatBox 8s ease-in-out infinite alternate;">
+            <h4 style="color:#fff; margin-bottom:10px; font-family:'Syne';">Verified Nodes</h4>
+            <p style="font-size:13px; color:rgba(255,255,255,0.7);">Every profile and company is authenticated through
+              our proprietary AI validation system.</p>
+          </div>
+          <div
+            style="background:rgba(255,255,255,0.05); padding:24px; border-radius:20px; border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(20px); animation:floatBox 10s ease-in-out infinite alternate-reverse;">
+            <h4 style="color:#fff; margin-bottom:10px; font-family:'Syne';">Rapid Scaling</h4>
+            <p style="font-size:13px; color:rgba(255,255,255,0.7);">Connect with thousands of industrial opportunities
+              or talent pipelines in a single unified node.</p>
+          </div>
+          <div
+            style="background:rgba(255,255,255,0.05); padding:24px; border-radius:20px; border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(20px); animation:floatBox 9s ease-in-out infinite alternate;">
+            <h4 style="color:#fff; margin-bottom:10px; font-family:'Syne';">Elite Network</h4>
+            <p style="font-size:13px; color:rgba(255,255,255,0.7);">Join India's most ambitious professional community
+              designed for high-impact innovation.</p>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+          <a href="#" class="btn btn-primary" style="padding:18px 55px;">Find Internships</a>
+          <a href="/company" class="btn btn-outline" style="padding:18px 55px; border-color:#fff; color:#fff;">Partner
+            With Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="si">
+      <div class="fgrd">
+        <div class="fbrand">
+          <a href="/" class="flogo">CONNETO</a>
+          <p>India's premier infrastructure for emerging talent discovery and organizational integration.</p>
+          <div class="fsoc">
+            <a href="#" class="sln"><img src="https://cdn.simpleicons.org/linkedin/white"></a>
+            <a href="#" class="sln"><img src="https://cdn.simpleicons.org/x/white"></a>
+            <a href="#" class="sln"><img src="https://cdn.simpleicons.org/instagram/white"></a>
+          </div>
+        </div>
+        <div class="fcol">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#">Explore Internships</a></li>
+            <li><a href="#">Candidate Search</a></li>
+            <li><a href="#">Hiring Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="fcol">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="fcol">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="fbot">
+        <p>© 2026 Conneto Intelligence Pvt Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/animations.js"></script>
+  <script src="/js/index.js"></script>
+>>>>>>> 6f611f7a94aa2c354e9dbbe95c37badd540ebeb6
 </body>
 
 </html>
