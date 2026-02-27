@@ -8,9 +8,10 @@ require('dotenv').config();
 const app = express();
 
 // ─── Connect to MongoDB Atlas ──────────────────────────────────────────────
+let dbConnected = false;
 mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('✅ Connected to MongoDB Atlas'))
-    .catch(err => console.error('❌ MongoDB connection error:', err));
+    .then(() => { console.log('✅ Connected to MongoDB Atlas'); dbConnected = true; })
+    .catch(err => console.error('⚠️  MongoDB unavailable (frontend-only mode):', err.message));
 
 // ─── Middleware ────────────────────────────────────────────────────────────
 app.use(express.urlencoded({ extended: true }));
@@ -18,13 +19,18 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ─── Sessions ─────────────────────────────────────────────────────────────
-app.use(session({
-    secret: process.env.SESSION_SECRET,
+const sessionConfig = {
+    secret: process.env.SESSION_SECRET || 'dev_secret',
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
     cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 day
-}));
+};
+// Only use MongoStore if a real URI is provided
+const mongoUri = process.env.MONGODB_URI || '';
+if (mongoUri && !mongoUri.includes('<username>') && !mongoUri.includes('xxxxx')) {
+    sessionConfig.store = MongoStore.create({ mongoUrl: mongoUri });
+}
+app.use(session(sessionConfig));
 
 // ─── View Engine ──────────────────────────────────────────────────────────
 app.set('view engine', 'ejs');

@@ -7,17 +7,1401 @@
     <title>
         <%= title %>
     </title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --blue: #1D4ED8;
+            --blue-mid: #2563EB;
+            --blue-lt: #3B82F6;
+            --blue-xl: #EFF6FF;
+            --blue-bd: #DBEAFE;
+            --navy: #1E3A8A;
+            --navy-dk: #172554;
+            --slate: #0F172A;
+            --text: #111827;
+            --tm: #1F2937;
+            --ts: #374151;
+            --tmu: #6B7280;
+            --gray: #F0F4FA;
+            --white: #fff;
+            --line: #CBD5E1;
+            --ease: cubic-bezier(.22, 1, .36, 1)
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #fff;
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.65;
+            font-weight: 500
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        ul {
+            list-style: none
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 900;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            transition: all .4s var(--ease)
+        }
+
+        .nav.solid {
+            background: rgba(255, 255, 255, .97);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 var(--line), 0 4px 24px rgba(0, 0, 0, .08)
+        }
+
+        .nav-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.65rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -.05em;
+            transition: color .3s
+        }
+
+        .nav.solid .nav-logo {
+            color: var(--navy)
+        }
+
+        .nav-logo span {
+            color: #60A5FA
+        }
+
+        .nav.solid .nav-logo span {
+            color: var(--blue-mid)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: .3rem
+        }
+
+        .nav-links a {
+            font-size: .88rem;
+            font-weight: 700;
+            padding: .5rem 1.1rem;
+            border-radius: 8px;
+            color: rgba(255, 255, 255, .88);
+            transition: all .25s
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+            background: rgba(255, 255, 255, .14)
+        }
+
+        .nav.solid .nav-links a {
+            color: var(--ts)
+        }
+
+        .nav.solid .nav-links a:hover {
+            color: var(--navy);
+            background: var(--blue-xl)
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: .6rem
+        }
+
+        .btn-nav-ghost {
+            padding: .5rem 1.3rem;
+            border-radius: 9px;
+            border: 1.5px solid rgba(255, 255, 255, .32);
+            color: #fff;
+            font-size: .84rem;
+            font-weight: 700;
+            transition: all .2s
+        }
+
+        .btn-nav-ghost:hover {
+            background: rgba(255, 255, 255, .12)
+        }
+
+        .btn-nav-solid {
+            padding: .5rem 1.4rem;
+            border-radius: 9px;
+            background: #fff;
+            color: var(--blue);
+            font-size: .84rem;
+            font-weight: 800;
+            transition: all .2s;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .18)
+        }
+
+        .btn-nav-solid:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, .22)
+        }
+
+        .nav.solid .btn-nav-ghost {
+            border-color: var(--line);
+            color: var(--tm)
+        }
+
+        .nav.solid .btn-nav-ghost:hover {
+            border-color: var(--blue-mid);
+            color: var(--blue-mid);
+            background: var(--blue-xl)
+        }
+
+        .nav.solid .btn-nav-solid {
+            background: var(--blue-mid);
+            color: #fff
+        }
+
+        .nav.solid .btn-nav-solid:hover {
+            background: var(--blue)
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1800&q=90');
+            background-size: cover;
+            background-position: center
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(145deg, rgba(15, 23, 66, .95) 0%, rgba(23, 37, 84, .9) 35%, rgba(29, 78, 216, .8) 70%, rgba(37, 99, 235, .74) 100%)
+        }
+
+        #heroCanvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 3;
+            max-width: 1120px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 9rem 7% 5rem;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 5rem;
+            align-items: center
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #93C5FD;
+            background: rgba(59, 130, 246, .18);
+            border: 1px solid rgba(99, 179, 237, .3);
+            padding: .38rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.4rem;
+            animation: riseUp .7s var(--ease) both
+        }
+
+        .badge-pulse {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #60A5FA;
+            animation: blink 2s ease infinite
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        .hero-h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.7rem, 5.5vw, 4.3rem);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -.04em;
+            line-height: 1.05;
+            margin-bottom: 1.3rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, .3);
+            animation: riseUp .7s .1s var(--ease) both
+        }
+
+        .hero-h1 .grad-text {
+            display: block;
+            background: linear-gradient(90deg, #93C5FD, #38BDF8, #67E8F9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        .hero-p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, .82);
+            line-height: 1.82;
+            max-width: 490px;
+            font-weight: 500;
+            margin-bottom: 2.2rem;
+            animation: riseUp .7s .2s var(--ease) both
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: riseUp .7s .3s var(--ease) both
+        }
+
+        .btn-hp {
+            padding: .9rem 2rem;
+            border-radius: 12px;
+            background: #fff;
+            color: var(--blue);
+            font-family: 'Outfit', sans-serif;
+            font-size: .95rem;
+            font-weight: 800;
+            box-shadow: 0 4px 22px rgba(0, 0, 0, .25);
+            transition: all .25s
+        }
+
+        .btn-hp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, .32)
+        }
+
+        .btn-hs {
+            padding: .9rem 2rem;
+            border-radius: 12px;
+            border: 1.5px solid rgba(255, 255, 255, .3);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: .95rem;
+            font-weight: 700;
+            transition: all .25s
+        }
+
+        .btn-hs:hover {
+            background: rgba(255, 255, 255, .12);
+            border-color: rgba(255, 255, 255, .55)
+        }
+
+        .hero-card-wrap {
+            animation: riseUp .9s .4s var(--ease) both
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, .1);
+            backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 22px;
+            padding: 1.9rem;
+            animation: floatY 6s ease-in-out infinite;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .3)
+        }
+
+        @keyframes floatY {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-14px)
+            }
+        }
+
+        .hc-head {
+            font-family: 'Outfit', sans-serif;
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #93C5FD;
+            margin-bottom: 1.4rem
+        }
+
+        .hc-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: .9rem
+        }
+
+        .hc-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: .85rem 1rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .1);
+            transition: background .3s
+        }
+
+        .hc-row:hover {
+            background: rgba(255, 255, 255, .16)
+        }
+
+        .hc-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .hc-icon svg {
+            width: 19px;
+            height: 19px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 1.8
+        }
+
+        .hc-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1
+        }
+
+        .hc-lbl {
+            font-size: .74rem;
+            color: rgba(255, 255, 255, .65);
+            margin-top: .14rem;
+            font-weight: 500
+        }
+
+        .hc-live {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            margin-top: 1.3rem;
+            padding: .45rem 1rem;
+            border-radius: 100px;
+            background: rgba(16, 185, 129, .16);
+            border: 1px solid rgba(16, 185, 129, .3);
+            font-size: .75rem;
+            font-weight: 800;
+            color: #6EE7B7
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #34D399;
+            animation: livePulse 2s ease infinite
+        }
+
+        @keyframes livePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(52, 211, 153, .5)
+            }
+
+            60% {
+                box-shadow: 0 0 0 8px rgba(52, 211, 153, 0)
+            }
+        }
+
+        .scroll-cue {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
+            animation: riseUp 1s .9s var(--ease) both;
+            opacity: .75
+        }
+
+        .scroll-cue span {
+            font-size: .7rem;
+            color: rgba(255, 255, 255, .65);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 700
+        }
+
+        .scroll-mouse {
+            width: 22px;
+            height: 34px;
+            border: 2px solid rgba(255, 255, 255, .35);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            padding-top: 5px
+        }
+
+        .scroll-wheel {
+            width: 3px;
+            height: 7px;
+            background: rgba(255, 255, 255, .8);
+            border-radius: 2px;
+            animation: wheel 1.6s ease infinite
+        }
+
+        @keyframes wheel {
+            0% {
+                transform: translateY(0);
+                opacity: 1
+            }
+
+            100% {
+                transform: translateY(10px);
+                opacity: 0
+            }
+        }
+
+        @keyframes riseUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ── STATS BAR ── */
+        .stats-bar {
+            background: linear-gradient(135deg, #172554 0%, var(--navy) 50%, var(--blue-mid) 100%);
+            padding: 2.8rem 7%;
+            position: relative;
+            overflow: hidden
+        }
+
+        .stats-bar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 100% at 80% 50%, rgba(255, 255, 255, .1), transparent)
+        }
+
+        .stats-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            background: rgba(255, 255, 255, .09);
+            transition: all .3s;
+            backdrop-filter: blur(10px)
+        }
+
+        .stat-box:hover {
+            background: rgba(255, 255, 255, .17);
+            transform: translateY(-5px);
+            box-shadow: 0 16px 44px rgba(0, 0, 0, .22)
+        }
+
+        .stat-v {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: .35rem
+        }
+
+        .stat-l {
+            font-size: .83rem;
+            color: rgba(255, 255, 255, .76);
+            font-weight: 700
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            padding: 6.5rem 7%
+        }
+
+        .si {
+            max-width: 1120px;
+            margin: 0 auto
+        }
+
+        .sec-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .48rem;
+            font-size: .71rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--blue-mid);
+            background: var(--blue-xl);
+            border: 1px solid var(--blue-bd);
+            padding: .33rem .88rem;
+            border-radius: 100px;
+            margin-bottom: 1rem
+        }
+
+        .sec-h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 2.9rem);
+            font-weight: 900;
+            letter-spacing: -.03em;
+            color: var(--text);
+            line-height: 1.12;
+            margin-bottom: .9rem
+        }
+
+        .sec-sub {
+            font-size: 1rem;
+            color: var(--ts);
+            line-height: 1.8;
+            max-width: 520px;
+            font-weight: 500
+        }
+
+        .center {
+            text-align: center
+        }
+
+        .center .sec-sub {
+            margin: 0 auto
+        }
+
+        /* ── FEATURES ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem
+        }
+
+        .feat-card {
+            padding: 2.2rem;
+            border-radius: 20px;
+            border: 1px solid var(--line);
+            background: #fff;
+            transition: all .35s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .feat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-mid), var(--blue-lt));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .4s var(--ease)
+        }
+
+        .feat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(29, 78, 216, .15);
+            border-color: var(--blue-bd)
+        }
+
+        .feat-card:hover::before {
+            transform: scaleX(1)
+        }
+
+        .feat-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: var(--blue-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.4rem
+        }
+
+        .feat-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--blue-mid);
+            fill: none;
+            stroke-width: 1.8
+        }
+
+        .feat-h {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: .6rem
+        }
+
+        .feat-p {
+            font-size: .9rem;
+            color: var(--tmu);
+            line-height: 1.75
+        }
+
+        /* ── HOW IT WORKS ── */
+        .hiw-bg {
+            background: #F4F7FF
+        }
+
+        .steps-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            position: relative
+        }
+
+        .steps-row::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue-bd), var(--blue-mid), var(--blue-bd));
+            z-index: 0
+        }
+
+        .step-box {
+            text-align: center;
+            position: relative;
+            z-index: 1
+        }
+
+        .step-num {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue-mid), var(--blue-lt));
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.3rem;
+            box-shadow: 0 8px 24px rgba(37, 99, 235, .35);
+            transition: transform .3s
+        }
+
+        .step-box:hover .step-num {
+            transform: scale(1.12)
+        }
+
+        .step-h {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: .45rem
+        }
+
+        .step-p {
+            font-size: .85rem;
+            color: var(--tmu);
+            line-height: 1.7
+        }
+
+        /* ── CATEGORIES ── */
+        .cats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.3rem;
+            margin-top: 3.5rem
+        }
+
+        .cat-card {
+            padding: 1.6rem 1.2rem;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: all .3s;
+            text-decoration: none;
+            display: block
+        }
+
+        .cat-card:hover {
+            border-color: var(--blue-mid);
+            background: var(--blue-xl);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(29, 78, 216, .12)
+        }
+
+        .cat-emoji {
+            font-size: 2rem;
+            margin-bottom: .8rem;
+            display: block
+        }
+
+        .cat-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: .92rem;
+            font-weight: 800;
+            color: var(--text)
+        }
+
+        .cat-count {
+            font-size: .78rem;
+            color: var(--tmu);
+            margin-top: .3rem
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: linear-gradient(160deg, #0D1B3E 0%, #1E3A8A 50%, #1D4ED8 100%);
+            padding: 7rem 7%;
+            text-align: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, .2), transparent 70%);
+            pointer-events: none
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(99, 179, 237, .15), transparent 70%);
+            pointer-events: none
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto
+        }
+
+        .cta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #93C5FD;
+            background: rgba(59, 130, 246, .18);
+            border: 1px solid rgba(99, 179, 237, .3);
+            padding: .35rem .9rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem
+        }
+
+        .cta-h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -.04em;
+            line-height: 1.08;
+            margin-bottom: 1.2rem
+        }
+
+        .cta-p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, .75);
+            line-height: 1.8;
+            margin-bottom: 2.5rem
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .btn-cta-p {
+            padding: 1rem 2.4rem;
+            border-radius: 12px;
+            background: #fff;
+            color: var(--blue);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            box-shadow: 0 6px 28px rgba(0, 0, 0, .3);
+            transition: all .25s
+        }
+
+        .btn-cta-p:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, .35)
+        }
+
+        .btn-cta-s {
+            padding: 1rem 2.4rem;
+            border-radius: 12px;
+            border: 1.5px solid rgba(255, 255, 255, .3);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: all .25s
+        }
+
+        .btn-cta-s:hover {
+            background: rgba(255, 255, 255, .12);
+            border-color: rgba(255, 255, 255, .6)
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: #0F1E42;
+            padding: 3rem 7%;
+        }
+
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .1)
+        }
+
+        .footer-brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: .7rem
+        }
+
+        .footer-brand-name span {
+            color: #60A5FA
+        }
+
+        .footer-brand-desc {
+            font-size: .85rem;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.75;
+            max-width: 240px
+        }
+
+        .footer-col-h {
+            font-family: 'Outfit', sans-serif;
+            font-size: .8rem;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .4);
+            margin-bottom: 1.1rem
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: .55rem
+        }
+
+        .footer-links a {
+            font-size: .85rem;
+            color: rgba(255, 255, 255, .6);
+            transition: color .2s
+        }
+
+        .footer-links a:hover {
+            color: #fff
+        }
+
+        .footer-bottom {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .35)
+        }
+
+        @media (max-width:900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem
+            }
+
+            .hero-card-wrap {
+                display: none
+            }
+
+            .stats-inner,
+            .features-grid,
+            .cats-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .steps-row {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .steps-row::before {
+                display: none
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media (max-width:540px) {
+
+            .stats-inner,
+            .features-grid,
+            .cats-grid,
+            .steps-row,
+            .footer-inner {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <%- include('partials/nav') %>
-        <main>
-            <h1>Welcome to Conneto</h1>
-            <p>India's smartest internship portal.</p>
-            <!-- Homepage content will be added here -->
-        </main>
-        <%- include('partials/footer') %>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <a href="/" class="nav-logo">Conn<span>eto</span></a>
+        <div class="nav-links">
+            <a href="/internships">Internships</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <div class="nav-cta">
+            <% if (user) { %>
+                <a href="/<%= user.role %>/dashboard" class="btn-nav-ghost">Dashboard</a>
+                <a href="/auth/logout" class="btn-nav-solid">Logout</a>
+                <% } else { %>
+                    <a href="/auth/login" class="btn-nav-ghost">Sign In</a>
+                    <a href="/auth/register" class="btn-nav-solid">Get Started</a>
+                    <% } %>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-inner">
+            <div class="hero-left">
+                <div class="hero-badge"><span class="badge-pulse"></span> India's #1 Internship Platform</div>
+                <h1 class="hero-h1">
+                    Launch Your Career
+                    <span class="grad-text">The Smart Way</span>
+                </h1>
+                <p class="hero-p">Conneto bridges ambitious students with top companies — real internships, real
+                    experience, real growth. Apply in minutes and land your first opportunity today.</p>
+                <div class="hero-btns">
+                    <a href="/internships" class="btn-hp">Explore Internships</a>
+                    <a href="/auth/register" class="btn-hs">Sign Up Free</a>
+                </div>
+            </div>
+            <div class="hero-card-wrap">
+                <div class="hero-card">
+                    <div class="hc-head">Platform Overview</div>
+                    <div class="hc-metrics">
+                        <div class="hc-row">
+                            <div class="hc-icon" style="background:rgba(59,130,246,.25)">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="hc-val">11,988+</div>
+                                <div class="hc-lbl">Students Registered</div>
+                            </div>
+                        </div>
+                        <div class="hc-row">
+                            <div class="hc-icon" style="background:rgba(139,92,246,.25)">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="hc-val">400+</div>
+                                <div class="hc-lbl">Verified Companies</div>
+                            </div>
+                        </div>
+                        <div class="hc-row">
+                            <div class="hc-icon" style="background:rgba(16,185,129,.25)">
+                                <svg viewBox="0 0 24 24">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="hc-val">1,798+</div>
+                                <div class="hc-lbl">Internships Posted</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hc-live"><span class="live-dot"></span> Platform is live &amp; growing</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-cue">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat-box">
+                <div class="stat-v">11K+</div>
+                <div class="stat-l">Students</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-v">400+</div>
+                <div class="stat-l">Companies</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-v">1,800+</div>
+                <div class="stat-l">Internships</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-v">92%</div>
+                <div class="stat-l">Placement Rate</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <section class="section">
+        <div class="si">
+            <div class="center">
+                <div class="sec-pill">Why Conneto</div>
+                <h2 class="sec-h2">Everything You Need to Get Hired</h2>
+                <p class="sec-sub">From discovering opportunities to landing your dream role — Conneto makes every step
+                    seamless.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feat-card">
+                    <div class="feat-icon"><svg viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg></div>
+                    <div class="feat-h">Smart Internship Search</div>
+                    <p class="feat-p">Filter by domain, location, stipend or duration. Find exactly what matches your
+                        goals in seconds.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><svg viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg></div>
+                    <div class="feat-h">One-Click Applications</div>
+                    <p class="feat-p">Apply to multiple internships instantly with your Conneto profile. No repeated
+                        form-filling.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><svg viewBox="0 0 24 24">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.36 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg></div>
+                    <div class="feat-h">Real-Time Status Updates</div>
+                    <p class="feat-p">Track every application and get notified the moment a company responds to your
+                        profile.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M3 9h18M9 21V9" />
+                        </svg></div>
+                    <div class="feat-h">Company Dashboard</div>
+                    <p class="feat-p">Companies can post, manage internships, and shortlist top candidates — all from
+                        one clean panel.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><svg viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg></div>
+                    <div class="feat-h">Verified Listings Only</div>
+                    <p class="feat-p">Every company is screened by our team so you only apply to legitimate, safe
+                        opportunities.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg></div>
+                    <div class="feat-h">Fast &amp; Transparent</div>
+                    <p class="feat-p">No hidden fees, no vague timelines. Conneto keeps everything clear so you can
+                        focus on growing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section hiw-bg">
+        <div class="si">
+            <div class="center">
+                <div class="sec-pill">How It Works</div>
+                <h2 class="sec-h2">Get Started in 4 Simple Steps</h2>
+                <p class="sec-sub">From sign-up to offer letter — the whole journey is designed to be fast and
+                    frictionless.</p>
+            </div>
+            <div class="steps-row">
+                <div class="step-box">
+                    <div class="step-num">1</div>
+                    <div class="step-h">Create Your Profile</div>
+                    <p class="step-p">Sign up as a student or company and build your profile in under 5 minutes.</p>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">2</div>
+                    <div class="step-h">Discover Internships</div>
+                    <p class="step-p">Browse hundreds of openings filtered by your skills, city, and preferred duration.
+                    </p>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">3</div>
+                    <div class="step-h">Apply Instantly</div>
+                    <p class="step-p">Hit apply, and your profile goes directly to the company's hiring team.</p>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">4</div>
+                    <div class="step-h">Get Selected</div>
+                    <p class="step-p">Track your application status and celebrate your first offer letter!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section">
+        <div class="si">
+            <div class="center">
+                <div class="sec-pill">Top Categories</div>
+                <h2 class="sec-h2">Explore Internships by Domain</h2>
+                <p class="sec-sub">Whether you're into tech, design, or finance — there's something here for every
+                    passion.</p>
+            </div>
+            <div class="cats-grid">
+                <a href="/internships?domain=tech" class="cat-card"><span class="cat-emoji">💻</span>
+                    <div class="cat-name">Software & Tech</div>
+                    <div class="cat-count">480+ openings</div>
+                </a>
+                <a href="/internships?domain=design" class="cat-card"><span class="cat-emoji">🎨</span>
+                    <div class="cat-name">Design & UX</div>
+                    <div class="cat-count">210+ openings</div>
+                </a>
+                <a href="/internships?domain=marketing" class="cat-card"><span class="cat-emoji">📣</span>
+                    <div class="cat-name">Marketing</div>
+                    <div class="cat-count">175+ openings</div>
+                </a>
+                <a href="/internships?domain=finance" class="cat-card"><span class="cat-emoji">📊</span>
+                    <div class="cat-name">Finance & CA</div>
+                    <div class="cat-count">130+ openings</div>
+                </a>
+                <a href="/internships?domain=data" class="cat-card"><span class="cat-emoji">🤖</span>
+                    <div class="cat-name">Data & AI</div>
+                    <div class="cat-count">320+ openings</div>
+                </a>
+                <a href="/internships?domain=content" class="cat-card"><span class="cat-emoji">✍️</span>
+                    <div class="cat-name">Content Writing</div>
+                    <div class="cat-count">95+ openings</div>
+                </a>
+                <a href="/internships?domain=hr" class="cat-card"><span class="cat-emoji">🤝</span>
+                    <div class="cat-name">HR & Operations</div>
+                    <div class="cat-count">80+ openings</div>
+                </a>
+                <a href="/internships?domain=research" class="cat-card"><span class="cat-emoji">🔬</span>
+                    <div class="cat-name">Research</div>
+                    <div class="cat-count">60+ openings</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <div class="cta-pill"><span class="badge-pulse"></span> Join 11,000+ Students</div>
+            <h2 class="cta-h2">Your Dream Internship Is One Click Away</h2>
+            <p class="cta-p">Stop scrolling job boards with no responses. Conneto puts you in front of verified
+                companies that are actively hiring right now.</p>
+            <div class="cta-btns">
+                <a href="/auth/register" class="btn-cta-p">Get Started — It's Free</a>
+                <a href="/internships" class="btn-cta-s">Browse Internships</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand-name">Conn<span>eto</span></div>
+                <p class="footer-brand-desc">India's smartest internship portal, connecting ambitious students with
+                    forward-thinking companies.</p>
+            </div>
+            <div>
+                <div class="footer-col-h">Platform</div>
+                <div class="footer-links">
+                    <a href="/internships">Browse Internships</a>
+                    <a href="/auth/register">Sign Up</a>
+                    <a href="/auth/login">Sign In</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer-col-h">Company</div>
+                <div class="footer-links">
+                    <a href="/about">About Us</a>
+                    <a href="/contact">Contact</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer-col-h">For Companies</div>
+                <div class="footer-links">
+                    <a href="/auth/register">Post Internships</a>
+                    <a href="/auth/login">Company Login</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2024 Conneto Technologies Pvt. Ltd. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Sticky nav
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('solid', window.scrollY > 40);
+        });
+
+        // Particle canvas
+        const canvas = document.getElementById('heroCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        resize(); window.addEventListener('resize', resize);
+        for (let i = 0; i < 60; i++) {
+            particles.push({
+                x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+                r: Math.random() * 1.8 + .3, vx: (Math.random() - .5) * .5, vy: (Math.random() - .5) * .45,
+                o: Math.random() * .5 + .15
+            });
+        }
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(147,197,253,${p.o})`; ctx.fill();
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+            });
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = 1; e.target.style.transform = 'translateY(0)'; } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.feat-card, .step-box, .cat-card, .stat-box').forEach(el => {
+            el.style.opacity = 0; el.style.transform = 'translateY(24px)';
+            el.style.transition = 'opacity .6s ease, transform .6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 
 </html>
