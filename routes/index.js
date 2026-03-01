@@ -12,12 +12,12 @@ router.get('/', (req, res) => {
 
 // About page
 router.get('/about', (req, res) => {
-    res.sendFile(path.join(ROOT, 'about.html'));
+    res.render('about', { title: 'About Us | Conneto', user: req.session.user || null });
 });
 
 // Contact page
 router.get('/contact', (req, res) => {
-    res.sendFile(path.join(ROOT, 'contact.html'));
+    res.render('contact', { title: 'Contact Us | Conneto', user: req.session.user || null });
 });
 
 module.exports = router;

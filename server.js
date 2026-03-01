@@ -9,9 +9,14 @@ const app = express();
 
 // ─── Connect to MongoDB Atlas ──────────────────────────────────────────────
 let dbConnected = false;
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => { console.log('✅ Connected to MongoDB Atlas'); dbConnected = true; })
-    .catch(err => console.error('⚠️  MongoDB unavailable (frontend-only mode):', err.message));
+const mongodb_uri = process.env.MONGODB_URI || "";
+if (mongodb_uri && !mongodb_uri.includes('<username>') && !mongodb_uri.includes('xxxxx')) {
+    mongoose.connect(mongodb_uri)
+        .then(() => { console.log('✅ Connected to MongoDB Atlas'); dbConnected = true; })
+        .catch(err => console.error('⚠️  MongoDB unavailable (frontend-only mode):', err.message));
+} else {
+    console.log('⚠️  MongoDB URI not configured. Running in frontend-only mode.');
+}
 
 // ─── Middleware ────────────────────────────────────────────────────────────
 app.use(express.urlencoded({ extended: true }));
@@ -39,10 +44,6 @@ app.set('views', path.join(__dirname, 'views'));
 // ─── Routes ───────────────────────────────────────────────────────────────
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
-app.use('/internships', require('./routes/internships'));
-app.use('/applications', require('./routes/applications'));
-app.use('/student', require('./routes/student'));
-app.use('/company', require('./routes/company'));
 
 // ─── 404 Handler ──────────────────────────────────────────────────────────
 app.use((req, res) => {
